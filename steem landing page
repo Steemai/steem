@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steem</title>
+    <style>
+        :root {
+            --brand-green: #A4DE00;
+            --dark-green: #1B300A;
+            --bg-dark: #F8F9FA;
+            --bg-card: rgba(0, 0, 0, 0.02);
+            --text-color: #1A1D21;
+            --text-secondary: rgba(26, 29, 33, 0.85);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 100% 0%, rgba(164, 222, 0, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 0% 100%, rgba(164, 222, 0, 0.05) 0%, transparent 25%);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+
+        .logo:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            color: var(--dark-green);
+            max-width: 16ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 span {
+            display: block;
+            font-size: 0.9em;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-green);
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-green);
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        #hero p {
+            font-size: 1.75rem;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            max-width: 24ch;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--brand-green);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(164, 222, 0, 0.3);
+        }
+
+        /* Paths Section */
+        .paths {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .path-card {
+            background: rgba(164, 222, 0, 0.02);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(164, 222, 0, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 300px;
+            box-shadow: 
+                0 4px 6px rgba(164, 222, 0, 0.02),
+                inset 0 0 20px rgba(164, 222, 0, 0.02),
+                0 0 0 1px rgba(164, 222, 0, 0.05);
+            position: relative;
+        }
+
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(120deg, rgba(164, 222, 0, 0.2), transparent, rgba(164, 222, 0, 0.1));
+            border-radius: 1.5rem;
+            z-index: -1;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-green);
+            background: rgba(164, 222, 0, 0.04);
+            box-shadow: 
+                0 10px 30px rgba(164, 222, 0, 0.1),
+                inset 0 0 30px rgba(164, 222, 0, 0.03),
+                0 0 0 1px rgba(164, 222, 0, 0.1);
+        }
+
+        .path-card:hover::before {
+            opacity: 1;
+        }
+
+        .path-card h4 {
+            color: var(--dark-green);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .path-card p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 4rem 0;
+        }
+
+        .comparison h2 {
+            font-size: 4rem;
+            margin-bottom: 6rem;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-card {
+            background: rgba(164, 222, 0, 0.02);
+            border: 1px solid rgba(164, 222, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(164, 222, 0, 0.03);
+        }
+
+        .comparison-card.best-choice {
+            background: rgba(164, 222, 0, 0.03);
+            border: 1px solid rgba(164, 222, 0, 0.15);
+            box-shadow: 
+                0 25px 50px rgba(164, 222, 0, 0.15),
+                0 10px 20px rgba(164, 222, 0, 0.1);
+        }
+
+        .comparison-card.best-choice::before {
+            content: none;
+        }
+
+        .best-choice-label {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--brand-green);
+            color: #000000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(164, 222, 0, 0.2);
+        }
+
+        .platform-icon {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .comparison-card h3 {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark-green);
+            font-weight: 700;
+        }
+
+        .feature-list {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+            min-height: 48px;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .comparison-card.best-choice .feature-list li:hover {
+            background: rgba(164, 222, 0, 0.02);
+        }
+
+        .feature-list .feature-name {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .feature-list .feature-value {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .check-icon, .x-icon, .minus-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            font-size: 1rem;
+        }
+
+        .check-icon {
+            color: var(--brand-green);
+        }
+
+        .x-icon {
+            color: #ff3b30;
+        }
+
+        .minus-icon {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .comparison {
+                padding: 6rem 1rem;
+            }
+            
+            .comparison h2 {
+                font-size: 2.5rem;
+                margin-bottom: 4rem;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Sona Demo Section */
+        #sona {
+            min-height: auto;
+            padding: 2rem 0 4rem;
+        }
+
+        #sona h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        #sona .content {
+            max-width: 600px;
+        }
+
+        /* iPhone Container Styles */
+        .iphone-container {
+            background: #ffffff;
+            border-radius: 55px;
+            padding: 15px;
+            position: relative;
+            max-width: 320px;
+            height: 650px;
+            margin: 2rem auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .iphone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 25px;
+            background: #000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .iphone-camera {
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .iphone-speaker {
+            width: 60px;
+            height: 6px;
+            background: #1a1a1a;
+            border-radius: 6px;
+        }
+
+        .chat-demo {
+            background: #ffffff;
+            border: none;
+            padding: 1rem;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            box-shadow: none;
+            overflow-y: auto;
+            position: relative;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .chat-demo::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chat-messages {
+            padding-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-message.user .chat-bubble {
+            background: #34AA13;
+            color: #ffffff;
+            border: none;
+            margin-left: 2rem;
+            margin-right: 0.5rem;
+            border-radius: 18px;
+            border-top-right-radius: 4px;
+            max-width: 85%;
+            padding: 12px 16px;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        .chat-message.sona .chat-bubble {
+            background: #f1f1f1;
+            border: none;
+            margin-right: 2rem;
+            margin-left: 0.5rem;
+            border-radius: 18px;
+            border-top-left-radius: 4px;
+            max-width: 85%;
+            padding: 12px 16px;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        .typing-indicator.sona {
+            background: #f1f1f1;
+            border: none;
+            border-radius: 18px;
+            border-top-left-radius: 4px;
+            padding: 12px 16px;
+        }
+
+        .typing-indicator.user {
+            background: #34AA13;
+            border: none;
+            border-radius: 18px;
+            border-top-right-radius: 4px;
+            padding: 12px 16px;
+        }
+
+        .typing-indicator span {
+            width: 4px;
+            height: 4px;
+            margin: 0 1px;
+            background: var(--brand-green);
+            border-radius: 50%;
+        }
+
+        .typing-indicator.user span {
+            background: #ffffff;
+        }
+
+        /* Modern scrollbar styling */
+        .chat-demo::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .chat-demo::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-demo::-webkit-scrollbar-thumb {
+            background: rgba(164, 222, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .chat-demo::-webkit-scrollbar-thumb:hover {
+            background: rgba(164, 222, 0, 0.3);
+        }
+
+        /* Firefox */
+        .chat-demo {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(164, 222, 0, 0.2) transparent;
+        }
+
+        .chat-message {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            margin: 0;
+        }
+
+        .chat-message.visible {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+
+        .chat-bubble {
+            padding: 12px 16px;
+            border-radius: 18px;
+            max-width: 85%;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            letter-spacing: 0.2px;
+            word-wrap: break-word;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .typing-indicator-container {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            margin: 0;
+        }
+
+        .typing-indicator-container.sona {
+            margin-right: 4rem;
+        }
+
+        .typing-indicator-container.user {
+            margin-left: 4rem;
+            justify-content: flex-end;
+        }
+
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 16px;
+        }
+
+        .typing-indicator span {
+            width: 6px;
+            height: 6px;
+            background: var(--brand-green);
+            border-radius: 50%;
+            margin: 0 1px;
+            opacity: 0.4;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 2px solid rgba(164, 222, 0, 0.3);
+            border-radius: 0.5rem;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--dark-green);
+            outline: none;
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231B300A' stroke='%231B300A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            background: var(--bg-card);
+            border-top: 1px solid rgba(164, 222, 0, 0.1);
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--dark-green);
+            opacity: 1;
+        }
+
+        .footer-note {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            h1 {
+                font-size: 2.75rem;
+                max-width: 100%;
+            }
+
+            h1 span {
+                font-size: 0.9em;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .paths, .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                min-height: auto;
+                padding: 3rem 0;
+            }
+
+            #hero p {
+                font-size: 1.25rem;
+                max-width: 100%;
+            }
+
+            .chat-demo {
+                width: 100%;
+                height: 420px;
+                border-radius: 16px;
+                padding: 1rem;
+            }
+            
+            .chat-messages {
+                min-height: 380px;
+            }
+        }
+
+        .how-it-works {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 3.5rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(120deg, var(--brand-green), #9fff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .path-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(164, 222, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+                flex-direction: column;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(164, 222, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .path-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--brand-green);
+            font-weight: 700;
+        }
+
+        .path-card p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            margin-top: 4rem;
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+            color: var(--bg-dark);
+            background: var(--brand-green);
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+                transition: all 0.3s ease;
+        }
+
+        .explore-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(164, 222, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .paths-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .how-it-works h2 {
+                font-size: 2.5rem;
+            }
+            
+            .path-card {
+                padding: 2rem;
+                min-height: auto;
+            }
+            
+            .path-card h3 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Specific section adjustments */
+        #hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding-top: 4rem;
+        }
+
+        #hero .content {
+            max-width: 900px;
+        }
+
+        #comparison {
+            padding: 4rem 0;
+        }
+
+        #sona {
+            min-height: auto;
+            padding: 2rem 0 4rem;
+        }
+
+        #waitlist {
+            padding: 4rem 0;
+        }
+
+        #waitlist p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            max-width: 32ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            #waitlist p {
+                font-size: 1.25rem;
+                max-width: 100%;
+            }
+            #waitlist p br {
+                display: none;
+            }
+        }
+
+        .submission-message {
+            transition: all 0.3s ease;
+        }
+
+        .submission-message.success {
+            background: rgba(164, 222, 0, 0.1);
+            color: var(--dark-green);
+            border: 1px solid rgba(164, 222, 0, 0.2);
+        }
+
+        .submission-message.error {
+            background: rgba(255, 59, 48, 0.1);
+            color: #ff3b30;
+            border: 1px solid rgba(255, 59, 48, 0.2);
+        }
+
+        /* Form submission animation */
+        .waitlist-form {
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .form-content {
+            transition: all 0.5s ease;
+        }
+
+        .success-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: all 0.5s ease;
+                text-align: center;
+            padding: 2rem;
+        }
+
+        .success-content .checkmark {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--brand-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            transform: scale(0);
+            transition: transform 0.5s cubic-bezier(0.18, 1.78, 0.3, 1) 0.3s;
+        }
+
+        .success-content .checkmark::before {
+            content: "✓";
+            color: #000000;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .success-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease 0.4s;
+        }
+
+        .success-content p {
+            font-size: 1.125rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease 0.5s;
+        }
+
+        .waitlist-form.submitted .form-content {
+            opacity: 0;
+            transform: translateY(-20px);
+            pointer-events: none;
+        }
+
+        .waitlist-form.submitted .success-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .waitlist-form.submitted .success-content .checkmark {
+            transform: scale(1);
+        }
+
+        .waitlist-form.submitted .success-content h3,
+        .waitlist-form.submitted .success-content p {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- [1] Hero -->
+    <section id="hero">
+        <img src="https://i.postimg.cc/rd3kS0zd/Asset-1-2x-8.png" alt="Steem" class="logo">
+        <div class="container">
+            <div class="content">
+                <h1>You're not broken.<span>Just overloaded.</span></h1>
+                <p>Steem is where you unload, recenter, and breathe.</p>
+                <a href="#waitlist" class="cta-button">Join the waitlist</a>
+        </div>
+        </div>
+    </section>
+
+    <!-- [2] How Steem Works -->
+    <section id="how">
+        <div class="container">
+            <div class="content">
+                <h3>Three ways in. Take what you need.</h3>
+                <div class="paths">
+                    <div class="path-card">
+                        <h4>Sona</h4>
+                        <p>An artificial companion who listens like a human, remembers like a journal</p>
+                </div>
+                    <div class="path-card">
+                        <h4>Whisper</h4>
+                        <p>Anonymous support from people going through the same thing</p>
+                </div>
+                    <div class="path-card">
+                        <h4>Pros</h4>
+                        <p>Human care when you want expertise without therapy walls</p>
+                    </div>
+                </div>
+                <a href="#sona" class="cta-button" onclick="event.preventDefault(); document.querySelector('#sona').scrollIntoView({ behavior: 'smooth', block: 'start' });">Explore the model</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- [3] Comparison -->
+    <section id="comparison">
+        <div class="container">
+            <div class="content">
+                <h2>Why Choose Steem</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card best-choice">
+                        <div class="best-choice-label">BEST CHOICE</div>
+                        <div class="platform-icon">⚡</div>
+                        <h3>Steem</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="check-icon">●</span>
+                                <div>
+                                    <div class="feature-name">Response Time</div>
+                                    <div class="feature-value">60 seconds</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">●</span>
+                                <div>
+                                    <div class="feature-name">Availability</div>
+                                    <div class="feature-value">24/7 Access</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">●</span>
+                                <div>
+                                    <div class="feature-name">Cost</div>
+                                    <div class="feature-value">Affordable Plans</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">●</span>
+                                <div>
+                                    <div class="feature-name">Flexibility</div>
+                                    <div class="feature-value">On-Demand Support</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="platform-icon">💻</div>
+                        <h3>Other Platforms</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Response Time</div>
+                                    <div class="feature-value">3+ days</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Availability</div>
+                                    <div class="feature-value">Limited Hours</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="minus-icon">−</span>
+                                <div>
+                                    <div class="feature-name">Cost</div>
+                                    <div class="feature-value">Higher Rates</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="minus-icon">−</span>
+                                <div>
+                                    <div class="feature-name">Flexibility</div>
+                                    <div class="feature-value">Scheduled Sessions</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="platform-icon">🏥</div>
+                        <h3>Traditional Therapy</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Response Time</div>
+                                    <div class="feature-value">3+ weeks</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Availability</div>
+                                    <div class="feature-value">Office Hours Only</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Cost</div>
+                                    <div class="feature-value">Most Expensive</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Flexibility</div>
+                                    <div class="feature-value">Limited Options</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [4] A Glimpse of Sona -->
+    <section id="sona">
+        <div class="container">
+            <div class="content">
+                <h2>Sona doesn't small talk.<br>She gets you.</h2>
+                <div class="iphone-container">
+                    <div class="iphone-notch">
+                        <div class="iphone-camera"></div>
+                        <div class="iphone-speaker"></div>
+                    </div>
+                    <div class="chat-demo">
+                        <div class="chat-messages">
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Hey, glad you landed here. Want to talk about what's been weighing on you, or should I help you ease into it?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">I just moved out for school and it's been a lot harder than I thought.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Yeah, that's a weird kind of hard. Everything changes at once and somehow you're just supposed to adjust.
+
+What's been hitting the hardest so far?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">Honestly, just the loneliness. I don't really know anyone here and it's starting to get to me.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">That kind of lonely messes with you. Like even when you're around people, it still feels quiet inside.
+
+Want to tell me what that's been feeling like lately?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">It's waking up and not having anyone to talk to. Sitting through classes like a ghost. Then going home to silence.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">That's heavy, and honestly really real. You're doing everything right on the outside, but it still feels like no one sees you yet.
+
+Have you had any moments that felt even a little less empty?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">I guess there was this one class where someone talked to me. But I didn't really know what to do with it.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Yeah, totally. Like, cool, someone noticed me... now what?
+
+Want a couple easy ways to keep stuff like that going, without it feeling awkward or forced?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">Yeah, I'd take that.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Okay, first one's super simple. Just say something small the next time you see them. Doesn't needs to be deep.
+
+Just "hey again" or "this class is still wrecking me." Consistency builds comfort.</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">That actually makes sense. I always feel like I need to say something clever.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Nope. Boring works.
+
+People trust you faster when you're just real. Little honest moments beat polished ones every time.</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">I like that. I think I just needed someone to tell me it's okay not to be cool about all this.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">It's so okay. You're in a brand new place trying to stay human. That's already a lot.
+
+You don't have to figure it all out today. But you're not doing it alone either. I've got you.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [5] Final Call -->
+    <section id="waitlist">
+        <div class="container">
+            <div class="content">
+                <h2>You're right on time.</h2>
+                <p>We're building something different.<br>A space where support finds you,<br>right when you need it.</p>
+                <form class="waitlist-form" action="https://api.web3forms.com/submit" method="POST">
+                    <div class="form-content">
+                        <input type="hidden" name="access_key" value="d068e3d9-133e-4f98-af58-6c14a49f3fac">
+                        <input type="hidden" name="subject" value="New Steem Waitlist Signup">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Name (optional)">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="interest">
+                                <option value="">What are you most interested in?</option>
+                                <option value="sona">Sona AI Companion</option>
+                                <option value="whisper">Whisper Peer Support</option>
+                                <option value="pros">Professional Help</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button">Count me in</button>
+                        <p class="reassurance">We'll let you in early. No inbox overload.</p>
+                    </div>
+                    <div class="success-content">
+                        <div class="checkmark"></div>
+                        <h3>You're on the list!</h3>
+                        <p>We'll be in touch soon with early access.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- [6] Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+            <p class="footer-note">Steem isn't therapy. It's the space between.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all content sections
+        document.querySelectorAll('.content').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Chat animation
+        function animateChat() {
+            const messages = document.querySelectorAll('.chat-message');
+            const typingIndicators = document.querySelectorAll('.typing-indicator-container');
+            const chatDemo = document.querySelector('.chat-demo');
+            let isAnimating = false;
+            let animationController = null;
+            
+            // Helper function to show typing indicator
+            function showTypingIndicator(indicator) {
+                return new Promise(resolve => {
+                    if (!indicator) return resolve();
+                    indicator.style.display = 'flex';
+                    setTimeout(() => {
+                        indicator.style.opacity = '1';
+                        indicator.style.transform = 'translateY(0)';
+                        chatDemo.scrollTop = chatDemo.scrollHeight;
+                    }, 100);
+                    setTimeout(() => {
+                        indicator.style.opacity = '0';
+                        indicator.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            indicator.style.display = 'none';
+                            resolve();
+                        }, 300);
+                    }, 2000);
+                });
+            }
+
+            // Helper function to show message
+            function showMessage(message) {
+                return new Promise(resolve => {
+                    if (!message) return resolve();
+                    message.style.display = 'flex';
+                    setTimeout(() => {
+                        message.classList.add('visible');
+                        chatDemo.scrollTop = chatDemo.scrollHeight;
+                        resolve();
+                    }, 300);
+                });
+            }
+
+            // Reset all elements
+            function resetChat() {
+                return new Promise(resolve => {
+                    messages.forEach(message => {
+                        message.classList.remove('visible');
+                        message.style.display = 'none';
+                    });
+                    typingIndicators.forEach(indicator => {
+                        indicator.style.opacity = '0';
+                        indicator.style.transform = 'translateY(20px)';
+                        indicator.style.display = 'none';
+                    });
+                    chatDemo.scrollTop = 0;
+                    setTimeout(resolve, 500);
+                });
+            }
+
+            // Sequence of chat animation
+            async function playChat() {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                // Create a new controller for this animation cycle
+                const controller = {};
+                animationController = controller;
+                
+                try {
+                    await resetChat();
+                    if (animationController !== controller) return;
+                    
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    if (animationController !== controller) return;
+
+                    // First message (Sona)
+                    await showMessage(messages[0]);
+                    if (animationController !== controller) return;
+
+                    // Loop through remaining messages
+                    for (let i = 1; i < messages.length; i++) {
+                        // Check if this animation cycle should continue
+                        if (animationController !== controller) return;
+
+                        // Show typing indicator
+                        await new Promise(resolve => setTimeout(resolve, 2500));
+                        if (animationController !== controller) return;
+                        
+                        await showTypingIndicator(typingIndicators[i-1]);
+                        if (animationController !== controller) return;
+
+                        // Show message
+                        await showMessage(messages[i]);
+                        if (animationController !== controller) return;
+
+                        // Longer pause after each exchange (when Sona finishes speaking)
+                        if (i % 2 === 0) {
+                            await new Promise(resolve => setTimeout(resolve, 2000));
+                            if (animationController !== controller) return;
+                        }
+                    }
+
+                    // Wait before restarting
+                    await new Promise(resolve => setTimeout(resolve, 15000));
+                    if (animationController !== controller) return;
+
+                    // Clean up and restart
+                    isAnimating = false;
+                    if (animationController === controller) {
+                        setTimeout(() => {
+                            if (animationController === controller) {
+                                playChat();
+                            }
+                        }, 1000);
+                    }
+                } catch (error) {
+                    console.error('Animation error:', error);
+                    isAnimating = false;
+                }
+            }
+
+            // Start the chat sequence
+            playChat();
+
+            // Cleanup function for when section is no longer visible
+            return function cleanup() {
+                animationController = null;
+                isAnimating = false;
+            };
+        }
+
+        // Start chat animation when section becomes visible
+        const sonaSection = document.querySelector('#sona');
+        let cleanup = null;
+
+        const sonaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!cleanup) {
+                        cleanup = animateChat();
+                    }
+                } else {
+                    if (cleanup) {
+                        cleanup();
+                        cleanup = null;
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sonaObserver.observe(sonaSection);
+
+        function addMessage(message, isUser = false) {
+            const messagesContainer = document.querySelector('.chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'sona'}`;
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'chat-bubble';
+            bubbleDiv.textContent = message;
+            
+            messageDiv.appendChild(bubbleDiv);
+            messagesContainer.appendChild(messageDiv);
+            
+            // Trigger fade in
+            setTimeout(() => {
+                messageDiv.classList.add('visible');
+                // Auto scroll to the new message
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 100);
+        }
+
+        function showTypingIndicator() {
+            const container = document.querySelector('.typing-indicator-container');
+            if (container) {
+                container.style.display = 'flex';
+                container.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+        }
+
+        function hideTypingIndicator() {
+            const container = document.querySelector('.typing-indicator-container');
+            if (container) {
+                container.style.display = 'none';
+            }
+        }
+
+        // Add form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.waitlist-form');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const submissionMessage = form.querySelector('.submission-message');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Disable submit button and show loading state
+                submitButton.disabled = true;
+                submitButton.innerHTML = 'Submitting...';
+                
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        // Show success animation
+                        form.classList.add('submitted');
+                        
+                        // Reset form (but keep it hidden)
+                        setTimeout(() => {
+                            form.reset();
+                        }, 500);
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    // Show error message
+                    submitButton.innerHTML = 'Something went wrong';
+                    submitButton.classList.add('error');
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = 'Count me in';
+                        submitButton.classList.remove('error');
+                    }, 3000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
