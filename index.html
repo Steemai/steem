@@ -3,1220 +3,1536 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Steem - Mental Health Support When You Need It Most">
-    <title>Steem | Support in Seconds, Relief for Life</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Steem</title>
     <style>
-        /* Base Styles */
         :root {
-            --phantom: #333333;
-            --graphite: #4A4A4A;
-            --medium-green: #34A413;
-            --light-green: #A4DE00;
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 32px;
-            --spacing-xl: 48px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-full: 9999px;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --brand-green: #A4DE00;
+            --dark-green: #1B300A;
+            --bg-dark: #F8F9FA;
+            --bg-card: rgba(0, 0, 0, 0.02);
+            --text-color: #1A1D21;
+            --text-secondary: rgba(26, 29, 33, 0.85);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: auto;
-            scroll-padding-top: 72px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
         
         body {
-            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--phantom);
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 100% 0%, rgba(164, 222, 0, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 0% 100%, rgba(164, 222, 0, 0.05) 0%, transparent 25%);
+            color: var(--text-color);
             line-height: 1.6;
-            background-color: white;
-            overflow-x: hidden;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--spacing-md);
+            padding: 0 2rem;
         }
 
-        /* Header Styles */
-        header {
-            height: 72px;
-            padding: 0;
-            position: fixed;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            align-items: center;
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-            height: 100%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 32px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-        }
-
-        .nav-menu a {
-            color: var(--graphite);
-            text-decoration: none;
-            padding: 8px 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--medium-green);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-menu a:hover::after,
-        .nav-menu a.active::after {
-            width: calc(100% - 32px);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 var(--spacing-xl);
-            background: linear-gradient(135deg, 
-                rgba(164, 222, 0, 0.05) 0%,
-                rgba(52, 164, 19, 0.05) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: radial-gradient(circle at 70% 30%, 
-                rgba(164, 222, 0, 0.1) 0%,
-                rgba(164, 222, 0, 0.05) 30%,
-                rgba(255, 255, 255, 0) 70%
-            );
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(to bottom,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 1) 100%
-            );
-            pointer-events: none;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-tagline {
-            font-size: 1.2rem;
-            color: var(--medium-green);
-            font-weight: 600;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: var(--spacing-md);
-            color: var(--phantom);
-            line-height: 1.4;
-            letter-spacing: -0.02em;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--graphite);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.5;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: var(--spacing-md);
-            justify-content: center;
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .hero-image-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Button Styles */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 32px;
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            gap: var(--spacing-xs);
-            text-decoration: none;
-            color: white;
-            background-color: var(--medium-green);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--medium-green);
-            color: var(--medium-green);
-        }
-
-        .btn i {
-            font-size: 1.1em;
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover i {
-            transform: translateX(4px);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%) scale(0);
-            border-radius: 50%;
-            transition: transform 0.5s ease;
-        }
-
-        .btn:hover::before {
-            transform: translate(-50%, -50%) scale(2.5);
-        }
-
-        /* Section Styles */
         section {
-            padding: var(--spacing-xl) 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem 0;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            margin-bottom: var(--spacing-lg);
-            color: var(--phantom);
-            line-height: 1.2;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto var(--spacing-xl);
-            color: var(--graphite);
-        }
-
-        /* Animation Classes */
-        .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .fade-in.active {
+        .content.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Mobile Menu Styles */
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            padding: 8px;
-            cursor: pointer;
-            z-index: 101;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 72px;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: var(--spacing-md);
-                flex-direction: column;
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
-                visibility: hidden;
-            }
-
-            .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-                box-shadow: var(--shadow-md);
-            }
-
-            .nav-menu a {
-                width: 100%;
-                text-align: center;
-                padding: var(--spacing-sm) var(--spacing-md);
-            }
-
-            .hero-title, .hero-tagline, .subtitle, .hero-buttons {
-                display: none;
-            }
-
-            .hero-image-container {
-                margin: 0;
-                padding: 0;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                height: calc(100vh - 72px);
-            }
-
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: var(--spacing-md);
-                padding: 0 var(--spacing-sm);
-            }
-
-            .section-subtitle {
-                font-size: 1.1rem;
-                padding: 0 var(--spacing-sm);
-                margin-bottom: var(--spacing-lg);
-            }
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
-        }
-
-        .feature-card {
-            background: white;
-            padding: var(--spacing-lg);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--medium-green);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            color: var(--phantom);
-        }
-
-        .feature-description {
-            color: var(--graphite);
-            line-height: 1.6;
-        }
-
-        /* FAQ Styles */
-        .faq-grid {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: var(--spacing-md);
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: var(--radius-md);
-            background: white;
-        }
-
-        .faq-question {
-            padding: var(--spacing-md);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--phantom);
-            transition: background-color 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background-color: rgba(0,0,0,0.02);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            color: var(--graphite);
-            border-top: 1px solid transparent;
-            padding: 0 var(--spacing-md);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: var(--spacing-md);
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .faq-question i {
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: auto;
             transition: transform 0.3s ease;
+            object-fit: contain;
         }
 
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
+        .logo:hover {
+            transform: translateX(-50%) scale(1.1);
         }
 
-        /* Contact Form Styles */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+        /* Typography */
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            color: var(--dark-green);
+            max-width: 16ch;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .form-group {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .form-group label {
+        h1 span {
             display: block;
-            margin-bottom: var(--spacing-xs);
+            font-size: 0.9em;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-green);
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-green);
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        #hero p {
+            font-size: 1.75rem;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            max-width: 24ch;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--brand-green);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 0.5rem;
             font-weight: 600;
-            color: var(--phantom);
+            font-size: 1.125rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: var(--spacing-sm);
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 1rem;
+        .cta-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(164, 222, 0, 0.3);
         }
 
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
+        /* Paths Section */
+        .paths {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
-        /* Waitlist Form Styles */
-        .waitlist-form {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .path-card {
+            background: rgba(164, 222, 0, 0.02);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(164, 222, 0, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 300px;
+            box-shadow: 
+                0 4px 6px rgba(164, 222, 0, 0.02),
+                inset 0 0 20px rgba(164, 222, 0, 0.02),
+                0 0 0 1px rgba(164, 222, 0, 0.05);
             position: relative;
         }
 
-        .waitlist-form .form-group {
-            margin-bottom: var(--spacing-xl);
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(120deg, rgba(164, 222, 0, 0.2), transparent, rgba(164, 222, 0, 0.1));
+            border-radius: 1.5rem;
+            z-index: -1;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
         }
 
-        .waitlist-form input {
-            width: 100%;
-            max-width: 500px;
-            padding: 20px 32px;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: var(--radius-full);
-            font-family: inherit;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            background: rgba(0,0,0,0.02);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .waitlist-form input:focus {
-            outline: none;
-            border-color: var(--medium-green);
-            box-shadow: 0 0 0 3px rgba(52, 164, 19, 0.1);
-            background: white;
-        }
-
-        .waitlist-stats {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-xl);
-            margin-top: var(--spacing-xl);
-            padding-top: var(--spacing-xl);
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .waitlist-stat {
-            text-align: center;
-        }
-
-        .waitlist-stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--medium-green);
-            margin-bottom: var(--spacing-xs);
-            line-height: 1;
-        }
-
-        .waitlist-stat-label {
-            font-size: 1rem;
-            color: var(--graphite);
-            font-weight: 500;
-        }
-
-        .waitlist-benefits {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-xl);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .waitlist-benefit {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            color: var(--graphite);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .waitlist-benefit i {
-            color: var(--medium-green);
-            font-size: 1.2rem;
-        }
-
-        .waitlist-guarantee {
-            margin-top: var(--spacing-xl);
-            font-size: 0.9rem;
-            color: var(--graphite);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-xs);
-        }
-
-        .waitlist-guarantee i {
-            color: var(--medium-green);
-        }
-
-        /* Value Proposition Styles */
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
-        }
-
-        .value-card {
-            background: white;
-            padding: var(--spacing-lg);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .value-card:hover {
+        .path-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            border-color: var(--brand-green);
+            background: rgba(164, 222, 0, 0.04);
+            box-shadow: 
+                0 10px 30px rgba(164, 222, 0, 0.1),
+                inset 0 0 30px rgba(164, 222, 0, 0.03),
+                0 0 0 1px rgba(164, 222, 0, 0.1);
         }
 
-        .value-icon {
-            font-size: 3rem;
-            color: var(--medium-green);
-            margin-bottom: var(--spacing-md);
+        .path-card:hover::before {
+            opacity: 1;
         }
 
-        .value-title {
-            font-size: 1.8rem;
+        .path-card h4 {
+            color: var(--dark-green);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
             font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            color: var(--phantom);
         }
 
-        .value-description {
-            color: var(--graphite);
+        .path-card p {
+            font-size: 1.125rem;
             line-height: 1.6;
-            margin-bottom: var(--spacing-md);
+            color: var(--text-color);
+            opacity: 0.9;
         }
 
-        .value-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-top: var(--spacing-md);
-            padding-top: var(--spacing-md);
-            border-top: 1px solid rgba(0,0,0,0.1);
+        /* Comparison Section */
+        .comparison {
+            padding: 4rem 0;
         }
 
-        .stat-item {
+        .comparison h2 {
+            font-size: 4rem;
+            margin-bottom: 6rem;
             text-align: center;
+            font-weight: 800;
         }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--medium-green);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--graphite);
-        }
-
-        /* Comparison Chart Styles */
         .comparison-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-xl);
-            background: white;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-card {
+            background: rgba(164, 222, 0, 0.02);
+            border: 1px solid rgba(164, 222, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(164, 222, 0, 0.03);
+        }
+
+        .comparison-card.best-choice {
+            background: rgba(164, 222, 0, 0.03);
+            border: 1px solid rgba(164, 222, 0, 0.15);
+            box-shadow: 
+                0 25px 50px rgba(164, 222, 0, 0.15),
+                0 10px 20px rgba(164, 222, 0, 0.1);
+        }
+
+        .comparison-card.best-choice::before {
+            content: none;
+        }
+
+        .best-choice-label {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--brand-green);
+            color: #000000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(164, 222, 0, 0.2);
+        }
+
+        .platform-icon {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .comparison-card h3 {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark-green);
+            font-weight: 700;
+        }
+
+        .feature-list {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+            min-height: 48px;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .comparison-card.best-choice .feature-list li:hover {
+            background: rgba(164, 222, 0, 0.02);
+        }
+
+        .feature-list .feature-name {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .feature-list .feature-value {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .check-icon, .x-icon, .minus-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            font-size: 1rem;
+        }
+
+        .check-icon {
+            color: var(--brand-green);
+        }
+
+        .x-icon {
+            color: #ff3b30;
+        }
+
+        .minus-icon {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .comparison {
+                padding: 6rem 1rem;
+            }
+            
+            .comparison h2 {
+                font-size: 2.5rem;
+                margin-bottom: 4rem;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Sona Demo Section */
+        #sona {
+            min-height: auto;
+            padding: 2rem 0 4rem;
+        }
+
+        #sona h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        #sona .content {
+            max-width: 600px;
+        }
+
+        /* iPhone Container Styles */
+        .iphone-container {
+            background: #ffffff;
+            border-radius: 55px;
+            padding: 15px;
+            position: relative;
+            max-width: 320px;
+            height: 650px;
+            margin: 2rem auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
 
-        .comparison-column {
-            padding: var(--spacing-lg);
-            text-align: center;
+        .iphone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 25px;
+            background: #000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .iphone-camera {
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .iphone-speaker {
+            width: 60px;
+            height: 6px;
+            background: #1a1a1a;
+            border-radius: 6px;
+        }
+
+        .chat-demo {
+            background: #ffffff;
+            border: none;
+            padding: 1rem;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            box-shadow: none;
+            overflow-y: auto;
             position: relative;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
-        .comparison-column.steem {
-            background: linear-gradient(135deg, rgba(164, 222, 0, 0.1), rgba(52, 164, 19, 0.1));
+        .chat-demo::-webkit-scrollbar {
+            display: none;
         }
 
-        .comparison-column.steem::before {
-            content: 'BEST CHOICE';
+        .chat-messages {
+            padding-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-message.user .chat-bubble {
+            background: #34AA13;
+            color: #ffffff;
+            border: none;
+            margin-left: 2rem;
+            margin-right: 0.5rem;
+            border-radius: 18px;
+            border-top-right-radius: 4px;
+            max-width: 85%;
+            padding: 12px 16px;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        .chat-message.sona .chat-bubble {
+            background: #f1f1f1;
+            border: none;
+            margin-right: 2rem;
+            margin-left: 0.5rem;
+            border-radius: 18px;
+            border-top-left-radius: 4px;
+            max-width: 85%;
+            padding: 12px 16px;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        .typing-indicator.sona {
+            background: #f1f1f1;
+            border: none;
+            border-radius: 18px;
+            border-top-left-radius: 4px;
+            padding: 12px 16px;
+        }
+
+        .typing-indicator.user {
+            background: #34AA13;
+            border: none;
+            border-radius: 18px;
+            border-top-right-radius: 4px;
+            padding: 12px 16px;
+        }
+
+        .typing-indicator span {
+            width: 4px;
+            height: 4px;
+            margin: 0 1px;
+            background: var(--brand-green);
+            border-radius: 50%;
+        }
+
+        .typing-indicator.user span {
+            background: #ffffff;
+        }
+
+        /* Modern scrollbar styling */
+        .chat-demo::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .chat-demo::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-demo::-webkit-scrollbar-thumb {
+            background: rgba(164, 222, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .chat-demo::-webkit-scrollbar-thumb:hover {
+            background: rgba(164, 222, 0, 0.3);
+        }
+
+        /* Firefox */
+        .chat-demo {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(164, 222, 0, 0.2) transparent;
+        }
+
+        .chat-message {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            margin: 0;
+        }
+
+        .chat-message.visible {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+
+        .chat-bubble {
+            padding: 12px 16px;
+            border-radius: 18px;
+            max-width: 85%;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            letter-spacing: 0.2px;
+            word-wrap: break-word;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .typing-indicator-container {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            margin: 0;
+        }
+
+        .typing-indicator-container.sona {
+            margin-right: 4rem;
+        }
+
+        .typing-indicator-container.user {
+            margin-left: 4rem;
+            justify-content: flex-end;
+        }
+
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 16px;
+        }
+
+        .typing-indicator span {
+            width: 6px;
+            height: 6px;
+            background: var(--brand-green);
+            border-radius: 50%;
+            margin: 0 1px;
+            opacity: 0.4;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 2px solid rgba(164, 222, 0, 0.3);
+            border-radius: 0.5rem;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--dark-green);
+            outline: none;
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231B300A' stroke='%231B300A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            background: var(--bg-card);
+            border-top: 1px solid rgba(164, 222, 0, 0.1);
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--dark-green);
+            opacity: 1;
+        }
+
+        .footer-note {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            h1 {
+                font-size: 2.75rem;
+                max-width: 100%;
+            }
+
+            h1 span {
+                font-size: 0.9em;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .paths, .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                min-height: auto;
+                padding: 3rem 0;
+            }
+
+            #hero p {
+                font-size: 1.25rem;
+                max-width: 100%;
+            }
+
+            .chat-demo {
+                width: 100%;
+                height: 420px;
+                border-radius: 16px;
+                padding: 1rem;
+            }
+            
+            .chat-messages {
+                min-height: 380px;
+            }
+        }
+
+        .how-it-works {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 3.5rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(120deg, var(--brand-green), #9fff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .path-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(164, 222, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+                flex-direction: column;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(164, 222, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .path-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--brand-green);
+            font-weight: 700;
+        }
+
+        .path-card p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            margin-top: 4rem;
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+            color: var(--bg-dark);
+            background: var(--brand-green);
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+                transition: all 0.3s ease;
+        }
+
+        .explore-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(164, 222, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .paths-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .how-it-works h2 {
+                font-size: 2.5rem;
+            }
+            
+            .path-card {
+                padding: 2rem;
+                min-height: auto;
+            }
+            
+            .path-card h3 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Specific section adjustments */
+        #hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding-top: 4rem;
+        }
+
+        #hero .content {
+            max-width: 900px;
+        }
+
+        #comparison {
+            padding: 4rem 0;
+        }
+
+        #sona {
+            min-height: auto;
+            padding: 2rem 0 4rem;
+        }
+
+        #waitlist {
+            padding: 4rem 0;
+        }
+
+        #waitlist p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            max-width: 32ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            #waitlist p {
+                font-size: 1.25rem;
+                max-width: 100%;
+            }
+            #waitlist p br {
+                display: none;
+            }
+        }
+
+        .submission-message {
+            transition: all 0.3s ease;
+        }
+
+        .submission-message.success {
+            background: rgba(164, 222, 0, 0.1);
+            color: var(--dark-green);
+            border: 1px solid rgba(164, 222, 0, 0.2);
+        }
+
+        .submission-message.error {
+            background: rgba(255, 59, 48, 0.1);
+            color: #ff3b30;
+            border: 1px solid rgba(255, 59, 48, 0.2);
+        }
+
+        /* Form submission animation */
+        .waitlist-form {
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .form-content {
+            transition: all 0.5s ease;
+        }
+
+        .success-content {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            background: var(--medium-green);
-            color: white;
-            padding: var(--spacing-sm);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .comparison-header {
-            margin-top: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-            padding-top: var(--spacing-md);
-        }
-
-        .comparison-icon {
-            font-size: 2.5rem;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .comparison-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            color: var(--phantom);
-        }
-
-        .comparison-subtitle {
-            color: var(--graphite);
-            font-size: 0.9rem;
-        }
-
-        .comparison-features {
-            text-align: left;
-            margin-top: var(--spacing-lg);
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--spacing-md);
-            padding: var(--spacing-sm);
-            border-radius: var(--radius-sm);
-            background: rgba(0,0,0,0.02);
-        }
-
-        .feature-item i {
-            margin-right: var(--spacing-sm);
-            font-size: 1.2rem;
-        }
-
-        .feature-item.positive i {
-            color: var(--medium-green);
-        }
-
-        .feature-item.negative i {
-            color: #ff4444;
-        }
-
-        .feature-text {
-            flex: 1;
-        }
-
-        .feature-label {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .feature-value {
-            font-size: 0.9rem;
-            color: var(--graphite);
-        }
-
-        @media (max-width: 768px) {
-            .comparison-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-            }
-
-            .comparison-column {
-                padding: var(--spacing-md);
-                border-radius: var(--radius-md);
-                box-shadow: var(--shadow-sm);
-            }
-
-            .comparison-column.steem::before {
-                border-radius: var(--radius-md) var(--radius-md) 0 0;
-            }
-
-            .comparison-header {
-                margin-top: var(--spacing-md);
-                margin-bottom: var(--spacing-md);
-                padding-top: var(--spacing-lg);
-            }
-
-            .comparison-icon {
-                font-size: 2rem;
-                margin-bottom: var(--spacing-md);
-            }
-
-            .comparison-title {
-                font-size: 1.3rem;
-            }
-
-            .feature-item {
-                padding: var(--spacing-xs);
-            }
-
-            .feature-item i {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Popup Styles */
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
             opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .popup-overlay.active {
-            opacity: 1;
-        }
-
-        .popup-content {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            background: white;
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            text-align: center;
-            max-width: 90%;
-            width: 400px;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .popup-overlay.active .popup-content {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-
-        .popup-icon {
-            font-size: 3rem;
-            color: var(--medium-green);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .popup-content h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            color: var(--phantom);
-        }
-
-        .popup-content p {
-            color: var(--graphite);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.6;
-        }
-
-        .popup-content .btn {
-            min-width: 120px;
-        }
-
-        @media (max-width: 768px) {
-            .popup-content {
-                width: 85%;
-                padding: var(--spacing-lg);
-            }
-        }
-
-        /* Chat Interface Styles */
-        .chat-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            overflow: hidden;
-            position: relative;
-            height: 660px; /* Fixed height */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-header {
-            padding: var(--spacing-md);
-            background: var(--medium-green);
-            color: white;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: var(--spacing-md);
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-            background: #f8f9fa;
-            scroll-behavior: smooth;
-        }
-
-        .message {
-            max-width: 80%;
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: 18px;
-            line-height: 1.4;
-            font-size: 0.95rem;
-            position: relative;
-            margin: 4px 0;
-            text-align: left;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: messageAppear 0.3s ease forwards;
-        }
-
-        @keyframes messageAppear {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .message.user {
-            align-self: flex-end;
-            background: var(--medium-green);
-            color: white;
-            border-bottom-right-radius: 4px;
-            margin-left: 20%;
-        }
-
-        .message.assistant {
-            align-self: flex-start;
-            background: #D3D6E0;
-            color: var(--phantom);
-            border-bottom-left-radius: 4px;
-            margin-right: 20%;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .chat-input-container {
-            padding: var(--spacing-md);
-            border-top: 1px solid rgba(0,0,0,0.1);
-            display: flex;
-            gap: var(--spacing-sm);
-            background: white;
-            position: sticky;
-            bottom: 0;
-            z-index: 10;
+            transform: translateY(20px);
+            pointer-events: none;
             transition: all 0.5s ease;
+                text-align: center;
+            padding: 2rem;
         }
 
-        .chat-input {
-            flex: 1;
-            padding: var(--spacing-sm);
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 1rem;
-            resize: none;
-            min-height: 40px;
-            max-height: 120px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-input:focus {
-            outline: none;
-            border-color: var(--medium-green);
-            box-shadow: 0 0 0 2px rgba(52, 164, 19, 0.1);
-        }
-
-        .send-button {
-            padding: var(--spacing-sm) var(--spacing-md);
-            background: var(--medium-green);
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .success-content .checkmark {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--brand-green);
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
-        }
-
-        .send-button:hover {
-            background: #2d8f11;
-            transform: translateY(-1px);
-        }
-
-        .send-button:disabled {
-            background: rgba(52, 164, 19, 0.5);
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Chat Waitlist Form Styles */
-        .chat-waitlist-form {
-            display: none;
-            padding: var(--spacing-md);
-            background: white;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            animation: slideUp 0.5s ease forwards;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
             position: relative;
-            z-index: 1;
+            transform: scale(0);
+            transition: transform 0.5s cubic-bezier(0.18, 1.78, 0.3, 1) 0.3s;
         }
 
-        .chat-waitlist-form form {
-            display: flex;
-            gap: var(--spacing-sm);
+        .success-content .checkmark::before {
+            content: "✓";
+            color: #000000;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
-        .chat-waitlist-form input {
-            flex: 1;
-            padding: var(--spacing-sm) var(--spacing-md);
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: var(--radius-full);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+        .success-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease 0.4s;
         }
 
-        .chat-waitlist-form input:focus {
-            outline: none;
-            border-color: var(--medium-green);
-            box-shadow: 0 0 0 2px rgba(52, 164, 19, 0.1);
+        .success-content p {
+            font-size: 1.125rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease 0.5s;
         }
 
-        .chat-waitlist-form button {
-            padding: var(--spacing-sm) var(--spacing-md);
-            background: var(--medium-green);
-            color: white;
-            border: none;
-            border-radius: var(--radius-full);
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            white-space: nowrap;
+        .waitlist-form.submitted .form-content {
+            opacity: 0;
+            transform: translateY(-20px);
+            pointer-events: none;
         }
 
-        .chat-waitlist-form button:hover {
-            background: #2d8f11;
-            transform: translateY(-1px);
+        .waitlist-form.submitted .success-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
 
-        .chat-waitlist-success {
-            text-align: center;
-            color: #34A413;
-            padding: 1rem;
+        .waitlist-form.submitted .success-content .checkmark {
+            transform: scale(1);
+        }
+
+        .waitlist-form.submitted .success-content h3,
+        .waitlist-form.submitted .success-content p {
+            transform: translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-container">
-                <a href="#" class="logo">
-                    <img src="logo.png" alt="Steem Logo">
-                </a>
-                <nav class="nav-menu">
-                    <a href="#features">Features</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#contact">Contact</a>
-                </nav>
-                <button class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </header>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Steem</h1>
-                <p class="subtitle">Mental Health Support When You Need It Most</p>
-                <div class="hero-buttons">
-                    <a href="#features" class="btn">Learn More</a>
-                    <a href="#contact" class="btn-outline">Get Started</a>
-                </div>
-            </div>
-            <div class="hero-image-container">
-                <img src="hero-image.jpg" alt="Steem Hero Image" class="hero-image">
-            </div>
-        </section>
-        <section id="features" class="features-grid">
-            <h2 class="section-title">Features</h2>
-            <div class="feature-card">
-                <i class="feature-icon fas fa-heart"></i>
-                <h3 class="feature-title">Personalized Care</h3>
-                <p class="feature-description">We tailor our approach to your unique needs and goals.</p>
-            </div>
-            <div class="feature-card">
-                <i class="feature-icon fas fa-clock"></i>
-                <h3 class="feature-title">24/7 Availability</h3>
-                <p class="feature-description">Access support whenever you need it.</p>
-            </div>
-            <div class="feature-card">
-                <i class="feature-icon fas fa-user-friends"></i>
-                <h3 class="feature-title">Community Support</h3>
-                <p class="feature-description">Connect with others who understand.</p>
-            </div>
-        </section>
-        <section id="faq" class="faq-grid">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What is Steem?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Steem is a platform for mental health support. It provides personalized care, 24/7 availability, and community support.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How long does it take to see results?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    The time it takes to see results depends on your individual progress. We recommend sticking to your treatment plan.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Is Steem confidential?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Yes, Steem is confidential. Your information is kept secure and private.
-                </div>
-            </div>
-        </section>
-        <section id="contact" class="contact-form">
-            <h2 class="section-title">Contact Us</h2>
-            <form>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </div>
-    <script>
-        function showWaitlistForm() {
-            const waitlistForm = document.createElement('div');
-            waitlistForm.className = 'chat-waitlist-form';
-            waitlistForm.innerHTML = `
-                <form id="chatWaitlistForm" style="display: flex; gap: 8px; width: 100%;">
-                    <input type="hidden" name="access_key" value="118589ae-82ef-4f4f-8883-aa89cf72f3f1">
-                    <input type="hidden" name="subject" value="New Steem Waitlist Signup (Chat Demo)">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    <input type="email" name="email" placeholder="Enter your email" required style="flex: 1;">
-                    <button type="submit" class="btn">Join Waitlist <i class="fas fa-arrow-right"></i></button>
-                </form>
-            `;
-            
-            document.querySelector('.chat-container').appendChild(waitlistForm);
-            
-            // Scroll chat messages to show last message
-            const chatMessages = document.getElementById('chatMessages');
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            setTimeout(() => waitlistForm.classList.add('active'), 100);
+    <!-- [1] Hero -->
+    <section id="hero">
+        <img src="https://i.postimg.cc/rd3kS0zd/Asset-1-2x-8.png" alt="Steem" class="logo">
+        <div class="container">
+            <div class="content">
+                <h1>You're not broken.<span>Just overloaded.</span></h1>
+                <p>Steem is where you unload, recenter, and breathe.</p>
+                <a href="#waitlist" class="cta-button">Join the waitlist</a>
+        </div>
+        </div>
+    </section>
 
-            // Add form submission handler
-            const chatWaitlistForm = document.getElementById('chatWaitlistForm');
-            if (chatWaitlistForm) {
-                chatWaitlistForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const form = this;
-                    const submitButton = form.querySelector('button[type="submit"]');
-                    const originalButtonText = submitButton.innerHTML;
+    <!-- [2] How Steem Works -->
+    <section id="how">
+        <div class="container">
+            <div class="content">
+                <h3>Three ways in. Take what you need.</h3>
+                <div class="paths">
+                    <div class="path-card">
+                        <h4>Sona</h4>
+                        <p>An artificial companion who listens like a human, remembers like a journal</p>
+                </div>
+                    <div class="path-card">
+                        <h4>Whisper</h4>
+                        <p>Anonymous support from people going through the same thing</p>
+                </div>
+                    <div class="path-card">
+                        <h4>Pros</h4>
+                        <p>Human care when you want expertise without therapy walls</p>
+                    </div>
+                </div>
+                <a href="#sona" class="cta-button" onclick="event.preventDefault(); document.querySelector('#sona').scrollIntoView({ behavior: 'smooth', block: 'start' });">Explore the model</a>
+            </div>
+        </div>
+    </section>
 
-                    submitButton.innerHTML = 'Submitting... <i class="fas fa-spinner fa-spin"></i>';
-                    submitButton.disabled = true;
-
-                    const formData = new FormData(form);
-                    const object = Object.fromEntries(formData);
-                    const json = JSON.stringify(object);
-
-                    fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: json
-                    })
-                    .then(async (response) => {
-                        let json = await response.json();
-                        if (response.status == 200) {
-                            form.innerHTML = `
-                                <div style="text-align: center; width: 100%; color: var(--medium-green);">
-                                    <i class="fas fa-check-circle" style="font-size: 1.2em; margin-right: 8px;"></i>
-                                    Thanks for joining! We'll be in touch soon.
+    <!-- [3] Comparison -->
+    <section id="comparison">
+        <div class="container">
+            <div class="content">
+                <h2>Why Choose Steem</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card best-choice">
+                        <div class="best-choice-label">BEST CHOICE</div>
+                        <div class="platform-icon">⚡</div>
+                        <h3>Steem</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="check-icon">●</span>
+                                <div>
+                                    <div class="feature-name">Response Time</div>
+                                    <div class="feature-value">60 seconds</div>
                                 </div>
-                            `;
-                        } else {
-                            console.log(response);
-                            alert(json.message || 'Something went wrong.');
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        alert('Something went wrong. Please try again.');
-                    })
-                    .finally(() => {
-                        if (submitButton) {
-                            submitButton.innerHTML = originalButtonText;
-                            submitButton.disabled = false;
-                        }
-                    });
+                            </li>
+                            <li>
+                                <span class="check-icon">●</span>
+                                <div>
+                                    <div class="feature-name">Availability</div>
+                                    <div class="feature-value">24/7 Access</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">●</span>
+                                <div>
+                                    <div class="feature-name">Cost</div>
+                                    <div class="feature-value">Affordable Plans</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">●</span>
+                                <div>
+                                    <div class="feature-name">Flexibility</div>
+                                    <div class="feature-value">On-Demand Support</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="platform-icon">💻</div>
+                        <h3>Other Platforms</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Response Time</div>
+                                    <div class="feature-value">3+ days</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Availability</div>
+                                    <div class="feature-value">Limited Hours</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="minus-icon">−</span>
+                                <div>
+                                    <div class="feature-name">Cost</div>
+                                    <div class="feature-value">Higher Rates</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="minus-icon">−</span>
+                                <div>
+                                    <div class="feature-name">Flexibility</div>
+                                    <div class="feature-value">Scheduled Sessions</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="platform-icon">🏥</div>
+                        <h3>Traditional Therapy</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Response Time</div>
+                                    <div class="feature-value">3+ weeks</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Availability</div>
+                                    <div class="feature-value">Office Hours Only</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Cost</div>
+                                    <div class="feature-value">Most Expensive</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="x-icon">○</span>
+                                <div>
+                                    <div class="feature-name">Flexibility</div>
+                                    <div class="feature-value">Limited Options</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [4] A Glimpse of Sona -->
+    <section id="sona">
+        <div class="container">
+            <div class="content">
+                <h2>Sona doesn't small talk.<br>She gets you.</h2>
+                <div class="iphone-container">
+                    <div class="iphone-notch">
+                        <div class="iphone-camera"></div>
+                        <div class="iphone-speaker"></div>
+                    </div>
+                    <div class="chat-demo">
+                        <div class="chat-messages">
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Hey, glad you landed here. Want to talk about what's been weighing on you, or should I help you ease into it?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">I just moved out for school and it's been a lot harder than I thought.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Yeah, that's a weird kind of hard. Everything changes at once and somehow you're just supposed to adjust.
+
+What's been hitting the hardest so far?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">Honestly, just the loneliness. I don't really know anyone here and it's starting to get to me.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">That kind of lonely messes with you. Like even when you're around people, it still feels quiet inside.
+
+Want to tell me what that's been feeling like lately?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">It's waking up and not having anyone to talk to. Sitting through classes like a ghost. Then going home to silence.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">That's heavy, and honestly really real. You're doing everything right on the outside, but it still feels like no one sees you yet.
+
+Have you had any moments that felt even a little less empty?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">I guess there was this one class where someone talked to me. But I didn't really know what to do with it.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Yeah, totally. Like, cool, someone noticed me... now what?
+
+Want a couple easy ways to keep stuff like that going, without it feeling awkward or forced?</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">Yeah, I'd take that.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Okay, first one's super simple. Just say something small the next time you see them. Doesn't needs to be deep.
+
+Just "hey again" or "this class is still wrecking me." Consistency builds comfort.</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">That actually makes sense. I always feel like I need to say something clever.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">Nope. Boring works.
+
+People trust you faster when you're just real. Little honest moments beat polished ones every time.</div>
+                            </div>
+                            <div class="typing-indicator-container user">
+                                <div class="typing-indicator user">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message user">
+                                <div class="chat-bubble">I like that. I think I just needed someone to tell me it's okay not to be cool about all this.</div>
+                            </div>
+                            <div class="typing-indicator-container sona">
+                                <div class="typing-indicator sona">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="chat-message sona">
+                                <div class="chat-bubble">It's so okay. You're in a brand new place trying to stay human. That's already a lot.
+
+You don't have to figure it all out today. But you're not doing it alone either. I've got you.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [5] Final Call -->
+    <section id="waitlist">
+        <div class="container">
+            <div class="content">
+                <h2>You're right on time.</h2>
+                <p>We're building something different.<br>A space where support finds you,<br>right when you need it.</p>
+                <form class="waitlist-form" action="https://api.web3forms.com/submit" method="POST">
+                    <div class="form-content">
+                        <input type="hidden" name="access_key" value="d068e3d9-133e-4f98-af58-6c14a49f3fac">
+                        <input type="hidden" name="subject" value="New Steem Waitlist Signup">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Name (optional)">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="interest">
+                                <option value="">What are you most interested in?</option>
+                                <option value="sona">Sona AI Companion</option>
+                                <option value="whisper">Whisper Peer Support</option>
+                                <option value="pros">Professional Help</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button">Count me in</button>
+                        <p class="reassurance">We'll let you in early. No inbox overload.</p>
+                    </div>
+                    <div class="success-content">
+                        <div class="checkmark"></div>
+                        <h3>You're on the list!</h3>
+                        <p>We'll be in touch soon with early access.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- [6] Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+            <p class="footer-note">Steem isn't therapy. It's the space between.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all content sections
+        document.querySelectorAll('.content').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Chat animation
+        function animateChat() {
+            const messages = document.querySelectorAll('.chat-message');
+            const typingIndicators = document.querySelectorAll('.typing-indicator-container');
+            const chatDemo = document.querySelector('.chat-demo');
+            let isAnimating = false;
+            let animationController = null;
+            
+            // Helper function to show typing indicator
+            function showTypingIndicator(indicator) {
+                return new Promise(resolve => {
+                    if (!indicator) return resolve();
+                    indicator.style.display = 'flex';
+                    setTimeout(() => {
+                        indicator.style.opacity = '1';
+                        indicator.style.transform = 'translateY(0)';
+                        chatDemo.scrollTop = chatDemo.scrollHeight;
+                    }, 100);
+                    setTimeout(() => {
+                        indicator.style.opacity = '0';
+                        indicator.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            indicator.style.display = 'none';
+                            resolve();
+                        }, 300);
+                    }, 2000);
                 });
             }
+
+            // Helper function to show message
+            function showMessage(message) {
+                return new Promise(resolve => {
+                    if (!message) return resolve();
+                    message.style.display = 'flex';
+                    setTimeout(() => {
+                        message.classList.add('visible');
+                        chatDemo.scrollTop = chatDemo.scrollHeight;
+                        resolve();
+                    }, 300);
+                });
+            }
+
+            // Reset all elements
+            function resetChat() {
+                return new Promise(resolve => {
+                    messages.forEach(message => {
+                        message.classList.remove('visible');
+                        message.style.display = 'none';
+                    });
+                    typingIndicators.forEach(indicator => {
+                        indicator.style.opacity = '0';
+                        indicator.style.transform = 'translateY(20px)';
+                        indicator.style.display = 'none';
+                    });
+                    chatDemo.scrollTop = 0;
+                    setTimeout(resolve, 500);
+                });
+            }
+
+            // Sequence of chat animation
+            async function playChat() {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                // Create a new controller for this animation cycle
+                const controller = {};
+                animationController = controller;
+                
+                try {
+                    await resetChat();
+                    if (animationController !== controller) return;
+                    
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    if (animationController !== controller) return;
+
+                    // First message (Sona)
+                    await showMessage(messages[0]);
+                    if (animationController !== controller) return;
+
+                    // Loop through remaining messages
+                    for (let i = 1; i < messages.length; i++) {
+                        // Check if this animation cycle should continue
+                        if (animationController !== controller) return;
+
+                        // Show typing indicator
+                        await new Promise(resolve => setTimeout(resolve, 2500));
+                        if (animationController !== controller) return;
+                        
+                        await showTypingIndicator(typingIndicators[i-1]);
+                        if (animationController !== controller) return;
+
+                        // Show message
+                        await showMessage(messages[i]);
+                        if (animationController !== controller) return;
+
+                        // Longer pause after each exchange (when Sona finishes speaking)
+                        if (i % 2 === 0) {
+                            await new Promise(resolve => setTimeout(resolve, 2000));
+                            if (animationController !== controller) return;
+                        }
+                    }
+
+                    // Wait before restarting
+                    await new Promise(resolve => setTimeout(resolve, 15000));
+                    if (animationController !== controller) return;
+
+                    // Clean up and restart
+                    isAnimating = false;
+                    if (animationController === controller) {
+                        setTimeout(() => {
+                            if (animationController === controller) {
+                                playChat();
+                            }
+                        }, 1000);
+                    }
+                } catch (error) {
+                    console.error('Animation error:', error);
+                    isAnimating = false;
+                }
+            }
+
+            // Start the chat sequence
+            playChat();
+
+            // Cleanup function for when section is no longer visible
+            return function cleanup() {
+                animationController = null;
+                isAnimating = false;
+            };
         }
+
+        // Start chat animation when section becomes visible
+        const sonaSection = document.querySelector('#sona');
+        let cleanup = null;
+
+        const sonaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!cleanup) {
+                        cleanup = animateChat();
+                    }
+                } else {
+                    if (cleanup) {
+                        cleanup();
+                        cleanup = null;
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sonaObserver.observe(sonaSection);
+
+        function addMessage(message, isUser = false) {
+            const messagesContainer = document.querySelector('.chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'sona'}`;
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'chat-bubble';
+            bubbleDiv.textContent = message;
+            
+            messageDiv.appendChild(bubbleDiv);
+            messagesContainer.appendChild(messageDiv);
+            
+            // Trigger fade in
+            setTimeout(() => {
+                messageDiv.classList.add('visible');
+                // Auto scroll to the new message
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 100);
+        }
+
+        function showTypingIndicator() {
+            const container = document.querySelector('.typing-indicator-container');
+            if (container) {
+                container.style.display = 'flex';
+                container.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+        }
+
+        function hideTypingIndicator() {
+            const container = document.querySelector('.typing-indicator-container');
+            if (container) {
+                container.style.display = 'none';
+            }
+        }
+
+        // Add form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.waitlist-form');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const submissionMessage = form.querySelector('.submission-message');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Disable submit button and show loading state
+                submitButton.disabled = true;
+                submitButton.innerHTML = 'Submitting...';
+                
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        // Show success animation
+                        form.classList.add('submitted');
+                        
+                        // Reset form (but keep it hidden)
+                        setTimeout(() => {
+                            form.reset();
+                        }, 500);
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    // Show error message
+                    submitButton.innerHTML = 'Something went wrong';
+                    submitButton.classList.add('error');
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = 'Count me in';
+                        submitButton.classList.remove('error');
+                    }, 3000);
+                }
+            });
+        });
     </script>
 </body>
 </html>
