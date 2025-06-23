@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Steem - Your AI-Powered Emotional Support Companion</title>
+  <link rel="icon" href="logo.png">
+  <style>
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: #f9fafb;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3rem 0 2rem 0;
+    }
+    .logo img {
+      height: 48px;
+      width: auto;
+    }
+    .about-container {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+      max-width: 800px;
+      width: 90vw;
+      padding: 2.5rem 2rem 2.5rem 2rem;
+      margin-bottom: 3rem;
+    }
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', 'Inter', Arial, sans-serif;
+      font-weight: 700;
+      color: #1a2e05;
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-top: 0;
+      background: linear-gradient(120deg, #1a2e05, #4a7c59);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      color: #2d5016;
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      color: #3a4d1a;
+    }
+    p, li {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #222;
+    }
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .mission-statement {
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border-left: 4px solid #3b82f6;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0.75rem;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #1e40af;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .feature-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .team-section {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border-radius: 0.75rem;
+      border: 1px solid #bbf7d0;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #166534;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: #15803d;
+      font-weight: 500;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, #1a2e05, #2d5016);
+      color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .cta-section h3 {
+      color: white;
+      margin-top: 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #a4de00;
+      color: #1a2e05;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #9fff00;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) {
+      .about-container {
+        padding: 1.5rem 1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .copyright {
+      text-align: center;
+      color: #888;
+      font-size: 0.95rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://i.postimg.cc/rd3kS0zd/Asset-1-2x-8.png" alt="Steem Logo" style="height: 48px; width: auto; display: block; margin: 0 auto;">
+  </div>
+  <div class="about-container">
+    <h1>About Steem</h1>
+    
+    <div class="mission-statement">
+      "Steem isn't therapy. It's the space between."
+    </div>
+
+    <h2>Our Mission</h2>
+    <p>At Steem, we believe everyone deserves access to emotional support, understanding, and a safe space to be heard. We're building the bridge between traditional mental health resources and the everyday moments when you need someone to talk to.</p>
+    
+    <p>Our mission is to democratize emotional wellness by providing immediate, accessible, and judgment-free support through AI-powered conversations and human connection.</p>
+
+    <h2>What We Do</h2>
+    <p>Steem is a comprehensive emotional support platform that combines cutting-edge AI technology with human empathy to provide personalized support when you need it most.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>AI Support</h3>
+        <p>24/7 conversations with Sona, our AI companion designed to provide empathetic, personalized emotional support.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Peer Pro</h3>
+        <p>Connect with trained peer supporters who understand what you're going through and can offer genuine human connection.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔊</div>
+        <h3>Whisper</h3>
+        <p>Anonymous voice messaging for when you need to be heard without revealing your identity.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Wellness Tracking</h3>
+        <p>Monitor your emotional journey with personalized insights and progress tracking.</p>
+      </div>
+    </div>
+
+    <h2>Our Story</h2>
+    <p>Steem was born from a simple observation: while professional therapy is invaluable, there are countless moments in life when you need support but can't access it. Whether it's 3 AM when you can't sleep, during a stressful workday, or when you're feeling isolated, traditional mental health resources aren't always available.</p>
+    
+    <p>We started with a vision to create something different – not a replacement for professional help, but a companion for the in-between moments. A space where you can be vulnerable, heard, and supported without judgment or barriers.</p>
+
+    <h2>Our Values</h2>
+    <ul>
+      <li><strong>Accessibility:</strong> Support available whenever and wherever you need it</li>
+      <li><strong>Privacy:</strong> Your conversations and data are protected with enterprise-grade security</li>
+      <li><strong>Empathy:</strong> Every interaction is designed with genuine care and understanding</li>
+      <li><strong>Innovation:</strong> We continuously evolve our technology to better serve our community</li>
+      <li><strong>Community:</strong> Building connections between people who understand and support each other</li>
+    </ul>
+
+    <h2>Technology & Innovation</h2>
+    <p>Steem leverages advanced AI technology to provide personalized emotional support:</p>
+    <ul>
+      <li><strong>Natural Language Processing:</strong> Understanding context and emotional nuance in conversations</li>
+      <li><strong>Sentiment Analysis:</strong> Recognizing emotional patterns and providing appropriate responses</li>
+      <li><strong>Machine Learning:</strong> Continuously improving support quality based on user interactions</li>
+      <li><strong>Privacy-First Design:</strong> End-to-end encryption and anonymous interactions</li>
+    </ul>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Availability</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Anonymous</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Support Paths</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Understanding</div>
+      </div>
+    </div>
+
+    <h2>Our Commitment to Safety</h2>
+    <p>Your safety and well-being are our top priorities. While Steem provides emotional support, we're clear about our limitations:</p>
+    <ul>
+      <li>We're not a substitute for professional mental health care</li>
+      <li>We have built-in safety measures and crisis detection</li>
+      <li>We provide resources for professional help when needed</li>
+      <li>We maintain strict privacy and data protection standards</li>
+    </ul>
+
+    <h2>Join Our Community</h2>
+    <p>Steem is more than an app – it's a community of people supporting each other through life's challenges. Whether you're seeking support or want to help others, there's a place for you here.</p>
+
+    <div class="cta-section">
+      <h3>Ready to Start Your Journey?</h3>
+      <p>Download Steem today and discover the support you deserve.</p>
+      <a href="https://apps.apple.com/app/steem" class="cta-button">Download on App Store</a>
+    </div>
+
+    <h2>Get in Touch</h2>
+    <p>We'd love to hear from you. Whether you have questions, feedback, or just want to say hello, we're here to listen.</p>
+    <p><strong>Email:</strong> <a href="mailto:support@trysteem.com">support@trysteem.com</a></p>
+    <p><strong>For Press Inquiries:</strong> <a href="mailto:press@trysteem.com">press@trysteem.com</a></p>
+
+    <div class="copyright">&copy; <span id="copyright-year"></span> Steem LLC. All rights reserved.</div>
+  </div>
+  <script>
+    // Update copyright year automatically
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html> 
