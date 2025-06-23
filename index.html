@@ -3104,7 +3104,7 @@
             initTheme();
             initScrollAnimations();
             
-            // Add smooth scrolling to CTA buttons
+            // Add smooth scrolling to CTA buttons (only for hash links)
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -3112,11 +3112,25 @@
                 });
             });
             
-            // Debug footer links
+            // Ensure footer links work properly - more robust approach
             document.querySelectorAll('.footer-links a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    console.log('Footer link clicked:', this.href);
-                    // Don't prevent default - let the link work normally
+                // Remove any existing event listeners
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+                
+                // Add specific handler for footer links
+                newLink.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // If it's a hash link, handle smooth scrolling
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        smoothScrollTo(href);
+                    } else {
+                        // For external links, ensure they work normally
+                        e.stopPropagation();
+                        // Let the default behavior happen
+                    }
                 });
             });
         });
