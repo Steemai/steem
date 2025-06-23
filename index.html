@@ -1729,6 +1729,10 @@
             margin: 0 1rem;
             opacity: 0.8;
             transition: opacity 0.2s ease, color 0.2s ease;
+            pointer-events: auto;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
         }
 
         .footer-links a:hover {
@@ -3105,6 +3109,14 @@
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     smoothScrollTo(this.getAttribute('href'));
+                });
+            });
+            
+            // Debug footer links
+            document.querySelectorAll('.footer-links a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    console.log('Footer link clicked:', this.href);
+                    // Don't prevent default - let the link work normally
                 });
             });
         });
