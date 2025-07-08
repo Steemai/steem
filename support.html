@@ -254,7 +254,12 @@
         <div class="support-title">Contact Support</div>
         <div class="support-subtitle">Need help? Reach out and our team will get back to you as soon as possible.</div>
         <div class="support-card">
-            <form id="supportForm" autocomplete="off">
+            <form id="supportForm" action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
+                <input type="hidden" name="access_key" value="d068e3d9-133e-4f98-af58-6c14a49f3fac">
+                <input type="hidden" name="subject" value="New Support Request from Steem">
+                <input type="hidden" name="from_name" value="Steem Support Page">
+                <input type="hidden" name="redirect" value="https://trysteem.com/support.html?success=1">
+                <input type="hidden" name="email_to" value="support@trysteem.com">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required autocomplete="off">
@@ -290,11 +295,7 @@
         </div>
     </footer>
     <script>
-        document.getElementById('supportForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('supportForm').reset();
-            document.getElementById('successMessage').classList.add('visible');
-        });
+        // No JS needed for Web3Forms submission, handled by redirect
     </script>
 </body>
 </html> 
