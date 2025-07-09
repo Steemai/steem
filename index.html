@@ -3233,6 +3233,620 @@
         #hero h1.hero-title-glow .text-highlight::after {
             display: none !important;
         }
+        .waitlist-form .cta-button {
+          margin-top: 1.1rem;
+          margin-bottom: 1.1rem;
+        }
+        .waitlist-form .reassurance {
+          margin-top: 0.7rem;
+          margin-bottom: 0;
+        }
+        #sona {
+          padding-bottom: 1.2rem !important;
+        }
+        #sona h2 {
+          margin-bottom: 0.6rem !important;
+        }
+        .iphone-mockup-frame {
+          margin-bottom: 0.5rem !important;
+        }
+        .use-case-carousel {
+          margin: 0 auto;
+          max-width: 540px;
+          text-align: center;
+          position: relative;
+          min-height: 5.5em; /* Increase this if your longest use case is taller */
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .use-case-slide {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.32rem;
+          color: #1a2d13;
+          background: none;
+          border: none;
+          box-shadow: none;
+          opacity: 0;
+          transform: translateX(60px);
+          transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+          margin: 0 auto;
+          z-index: 1;
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          min-height: 3.5em;
+          cursor: pointer;
+          font-weight: 600;
+          white-space: normal;
+          overflow: visible;
+          text-overflow: unset;
+          padding: 0.5em 1.5em;
+          text-align: center;
+          max-width: 90%;
+        }
+        @media (min-width: 700px) {
+          .use-case-carousel {
+            max-width: 700px;
+          }
+          .use-case-slide {
+            max-width: 95%;
+            font-size: 1.45rem;
+            padding: 0.5em 2.5em;
+          }
+        }
+        .use-case-slide.active {
+          display: flex;
+          opacity: 1;
+          transform: translateX(0);
+          z-index: 2;
+        }
+        .use-case-slide:hover {
+          text-shadow: 0 2px 8px rgba(164,222,0,0.13);
+          color: #5fa800;
+          transform: translateX(0) scale(1.04);
+        }
+        .use-case-slide.exit-left {
+          display: flex;
+          opacity: 0;
+          transform: translateX(-60px);
+          z-index: 1;
+        }
+        .use-case-slide.exit-right {
+          display: flex;
+          opacity: 0;
+          transform: translateX(60px);
+          z-index: 1;
+        }
+
+        .use-case-carousel-section {
+          margin: 3.5rem auto 0 auto;
+          text-align: center;
+        }
+        .use-case-title {
+          font-size: 1.45rem;
+          font-weight: 700;
+          letter-spacing: -0.01em;
+          margin-bottom: 1.2rem;
+          color: #2a2d2f;
+          text-shadow: 0 2px 12px rgba(164,222,0,0.08);
+        }
+
+        .use-case-progress-bar {
+          width: 80%;
+          height: 5px;
+          background: rgba(164,222,0,0.13);
+          border-radius: 3px;
+          margin: 1.1em auto 0.5em auto;
+          overflow: hidden;
+          position: relative;
+        }
+        .use-case-progress-bar .progress {
+          height: 100%;
+          width: 0%;
+          background: linear-gradient(90deg, #b7e36a 0%, #5fa800 100%);
+          border-radius: 3px;
+          transition: width 2.5s linear;
+        }
+        .use-case-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(164,222,0,0.18);
+          border: none;
+          color: #1B300A;
+          font-size: 2.1rem;
+          border-radius: 50%;
+          width: 2.2em;
+          height: 2.2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+          box-shadow: 0 2px 8px 0 rgba(164,222,0,0.10);
+          transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+          opacity: 0.92;
+        }
+        .use-case-arrow.left {
+          left: 0.2em;
+        }
+        .use-case-arrow.right {
+          right: 0.2em;
+        }
+        .use-case-arrow:hover, .use-case-arrow:focus {
+          background: #b7e36a;
+          color: #5fa800;
+          opacity: 1;
+          box-shadow: 0 4px 16px 0 rgba(164,222,0,0.18);
+        }
+        @media (max-width: 600px) {
+          .use-case-arrow {
+            font-size: 1.4rem;
+            width: 1.5em;
+            height: 1.5em;
+          }
+        }
+        .use-case-carousel-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          position: relative;
+          margin: 0 auto;
+          max-width: 700px;
+        }
+        .use-case-carousel {
+          flex: 1 1 auto;
+          position: relative;
+          min-width: 0;
+        }
+        .use-case-arrow {
+          position: relative;
+          top: auto;
+          left: auto;
+          right: auto;
+          transform: none;
+          margin: 0 0.5em;
+          background: rgba(164,222,0,0.18);
+          border: none;
+          color: #1B300A;
+          font-size: 2.1rem;
+          border-radius: 50%;
+          width: 2.2em;
+          height: 2.2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+          box-shadow: 0 2px 8px 0 rgba(164,222,0,0.10);
+          transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+          opacity: 0.92;
+        }
+        .use-case-arrow:hover, .use-case-arrow:focus {
+          background: #b7e36a;
+          color: #5fa800;
+          opacity: 1;
+          box-shadow: 0 4px 16px 0 rgba(164,222,0,0.18);
+        }
+        @media (max-width: 600px) {
+          .use-case-arrow {
+            font-size: 1.4rem;
+            width: 1.5em;
+            height: 1.5em;
+            margin: 0 0.2em;
+          }
+          .use-case-carousel-wrapper {
+            max-width: 100vw;
+          }
+        }
+        .use-case-arrow:focus {
+          outline: none;
+        }
+        .use-case-arrow:focus-visible {
+          box-shadow: 0 0 0 3px #b7e36a, 0 4px 16px 0 rgba(164,222,0,0.18);
+          background: #e8f5e0;
+          color: #5fa800;
+          opacity: 1;
+        }
+
+        .use-case-pro-section {
+          position: relative;
+          z-index: 2;
+          margin: 3.5rem auto 0 auto;
+          padding: 3.5rem 0 3.5rem 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 420px;
+        }
+        .use-case-pro-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          background: linear-gradient(120deg, #f0f8e8 0%, #e8f5e0 50%, #f5f9f0 100%);
+          opacity: 0.92;
+          border-radius: 2.5rem;
+          box-shadow: 0 8px 48px 0 rgba(64,120,0,0.10), 0 2px 12px 0 rgba(40,80,0,0.10);
+          filter: blur(0.5px);
+        }
+        .use-case-pro-content {
+          position: relative;
+          z-index: 2;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 2.5rem 2rem 2rem 2rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 3em;
+        }
+        .use-case-spacer {
+          flex-basis: 25%;
+        }
+        .see-more-use-cases-btn {
+          margin-top: 0;
+          margin-bottom: 1.5em;
+        }
+        @media (max-width: 768px) {
+          .use-case-spacer {
+            flex-basis: 10%;
+          }
+        }
+        .use-case-pro-title {
+          font-size: 2.1rem;
+          font-weight: 800;
+          letter-spacing: -0.01em;
+          margin-bottom: 0.7rem;
+          color: #1B300A;
+          text-shadow: 0 2px 12px rgba(164,222,0,0.08);
+        }
+        .use-case-pro-desc {
+          font-size: 1.18rem;
+          color: #3a4d2a;
+          margin-bottom: 2.2rem;
+          max-width: 420px;
+          text-align: center;
+          opacity: 0.92;
+        }
+        .use-case-carousel-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          position: relative;
+          margin: 0 auto;
+          max-width: 100%;
+        }
+        .use-case-carousel {
+          flex: 1 1 auto;
+          position: relative;
+          min-width: 0;
+          width: 100%;
+          max-width: 100%;
+        }
+        .see-more-use-cases-btn {
+          margin-top: 0;
+          margin-bottom: 1.5em;
+        }
+        .use-case-slide {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.45rem;
+          color: #1a2d13;
+          background: none;
+          border: none;
+          box-shadow: none;
+          opacity: 0;
+          transform: translateX(60px);
+          transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+          margin: 0 auto;
+          z-index: 1;
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          min-height: 3.5em;
+          cursor: pointer;
+          font-weight: 600;
+          white-space: normal;
+          overflow: visible;
+          text-overflow: unset;
+          padding: 0.5em 0;
+          text-align: center;
+          width: 100%;
+          max-width: 100%;
+        }
+        
+        .see-more-use-cases-btn {
+          position: relative;
+          top: 25%;
+          margin-top: 0;
+          padding: 0.8em 1.5em;
+          background: linear-gradient(135deg, #5fa800 0%, #7bc043 100%);
+          color: white;
+          border: none;
+          border-radius: 2em;
+          font-size: 0.9em;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+          box-shadow: 0 4px 15px rgba(95, 168, 0, 0.3);
+        }
+        
+        .see-more-use-cases-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(95, 168, 0, 0.4);
+        }
+        
+        .see-more-use-cases-btn:active {
+          transform: translateY(0);
+        }
+        
+        .btn-arrow {
+          font-size: 1.1em;
+          transition: transform 0.3s ease;
+        }
+        
+        .see-more-use-cases-btn:hover .btn-arrow {
+          transform: translateX(3px);
+        }
+        
+        /* Modal Styles */
+        .use-cases-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 10000;
+          display: none;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        
+        .use-cases-modal.show {
+          display: flex;
+          opacity: 1;
+        }
+        
+        .modal-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+          position: relative;
+          width: 90%;
+          max-width: 800px;
+          max-height: 85vh;
+          margin: auto;
+          background: white;
+          border-radius: 1em;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+          from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        
+        .modal-header {
+          padding: 2em 2em 1em;
+          text-align: center;
+          border-bottom: 1px solid #f0f0f0;
+          position: relative;
+        }
+        
+        .modal-header h2 {
+          margin: 0 0 0.5em;
+          font-size: 1.8em;
+          color: #333;
+          font-weight: 600;
+        }
+        
+        .modal-header p {
+          margin: 0;
+          color: #666;
+          font-size: 1em;
+        }
+        
+        .modal-close {
+          position: absolute;
+          top: 1.5em;
+          right: 1.5em;
+          background: none;
+          border: none;
+          font-size: 2em;
+          color: #999;
+          cursor: pointer;
+          width: 2em;
+          height: 2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          transition: all 0.2s ease;
+        }
+        
+        .modal-close:hover {
+          background: #f5f5f5;
+          color: #333;
+        }
+        
+        .use-cases-grid {
+          padding: 1.5em 2em 2em;
+          max-height: 60vh;
+          overflow-y: auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1em;
+        }
+        
+        .use-case-item {
+          padding: 1em 1.2em;
+          background: linear-gradient(135deg, #f8ffed 0%, #f0f9e6 100%);
+          border: 1px solid #e8f5e8;
+          border-radius: 0.8em;
+          font-size: 0.95em;
+          line-height: 1.4;
+          color: #2c5a1a;
+          transition: all 0.2s ease;
+          cursor: pointer;
+        }
+        
+        .use-case-item:hover {
+          background: linear-gradient(135deg, #f0f9e6 0%, #e8f5e8 100%);
+          border-color: #5fa800;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(95, 168, 0, 0.15);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+          .modal-content {
+            width: 95%;
+            max-height: 90vh;
+          }
+          
+          .modal-header {
+            padding: 1.5em 1.5em 1em;
+          }
+          
+          .modal-header h2 {
+            font-size: 1.5em;
+          }
+          
+          .use-cases-grid {
+            padding: 1em 1.5em 1.5em;
+            grid-template-columns: 1fr;
+            gap: 0.8em;
+          }
+          
+          .use-case-item {
+            padding: 0.8em 1em;
+            font-size: 0.9em;
+          }
+          
+          .see-more-use-cases-btn {
+            top: 15%;
+            padding: 0.7em 1.2em;
+            font-size: 0.85em;
+          }
+        }
+
+        .two-paths-section {
+          text-align: center;
+          margin: 6em auto 0 auto;
+          max-width: 1000px;
+          position: relative;
+          padding-bottom: 3em;
+        }
+        .two-paths-cards {
+          display: flex;
+          justify-content: center;
+          gap: 3.5em;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        .two-paths-card {
+          position: relative;
+          background: rgba(255,255,255,0.85);
+          border-radius: 2em;
+          box-shadow: 0 8px 40px 0 rgba(95,168,0,0.13), 0 2px 12px 0 rgba(40,80,0,0.10);
+          padding: 3.5em 2.5em 2.5em 2.5em;
+          min-width: 340px;
+          max-width: 420px;
+          flex: 1 1 0;
+          text-align: center;
+          font-size: 1.18em;
+          color: #1a2d13;
+          transition: box-shadow 0.2s, border 0.2s;
+          border: 2.5px solid transparent;
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          margin-bottom: 0;
+          z-index: 1;
+        }
+        .two-paths-card::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0.9em;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 48px;
+          height: 6px;
+          border-radius: 3px;
+          background: linear-gradient(90deg, #b7e36a 0%, #5fa800 100%);
+          opacity: 0.85;
+          z-index: 2;
+        }
+        .two-paths-card:hover {
+          box-shadow: 0 16px 60px 0 rgba(95,168,0,0.18), 0 4px 24px 0 rgba(40,80,0,0.13);
+          border: 2.5px solid #b7e36a;
+        }
+        .two-paths-card h3 {
+          font-size: 2em;
+          font-weight: 800;
+          margin-bottom: 0.8em;
+          color: #1B300A;
+          letter-spacing: -0.01em;
+          margin-top: 1.2em;
+        }
+        .two-paths-card p {
+          margin: 0;
+          color: #2c5a1a;
+          opacity: 0.97;
+          font-size: 1.18em;
+          line-height: 1.6;
+          font-weight: 500;
+          max-width: 28ch;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        @media (max-width: 1000px) {
+          .two-paths-section {
+            max-width: 98vw;
+          }
+          .two-paths-cards {
+            gap: 1.5em;
+          }
+          .two-paths-card {
+            min-width: 0;
+            width: 100%;
+            max-width: 100vw;
+          }
+        }
+        @media (max-width: 700px) {
+          .two-paths-cards {
+            flex-direction: column;
+            gap: 2em;
+          }
+          .two-paths-card {
+            min-width: 0;
+            width: 100%;
+            max-width: 100vw;
+          }
+        }
     </style>
 </head>
 <body>
@@ -3306,39 +3920,55 @@
                 </div>
 
                 <!-- Social Proof -->
-                <div class="hero-social-proof animate-fade-in" style="animation-delay: 1s;">
-                    <div class="testimonial-preview glass card-enhanced">
-                        <div class="testimonial-content">
-                            <p>"Finally, support that doesn't feel like work."</p>
-                            <span class="testimonial-author">— Sarah, Beta User</span>
-                        </div>
+                <div class="use-case-pro-section">
+                  <div class="use-case-pro-bg"></div>
+                  <div class="use-case-pro-content">
+                    <h2 class="use-case-pro-title">How People Use Steem</h2>
+                    <p class="use-case-pro-desc">Real moments, real support.</p>
+                    <div class="use-case-carousel-wrapper">
+                      <button class="use-case-arrow left" aria-label="Previous use case">&#8592;</button>
+                      <div class="use-case-carousel" id="use-case-carousel">
+                        <div class="use-case-slide active">For when you're overwhelmed at 2am and need to vent.</div>
+                        <div class="use-case-slide">For advice without judgment after a tough day.</div>
+                        <div class="use-case-slide">For support when you can't talk to friends or family.</div>
+                        <div class="use-case-slide">For celebrating small wins, even if no one else gets it.</div>
+                        <div class="use-case-slide">For sorting out your thoughts before a big decision.</div>
+                      </div>
+                      <button class="use-case-arrow right" aria-label="Next use case">&#8594;</button>
                     </div>
+                    <div style="height: 7em;"></div>
+                    <button class="see-more-use-cases-btn" onclick="openUseCasesModal()">
+                      See 50+ More Real Use Cases
+                      <span class="btn-arrow">→</span>
+                    </button>
+                  </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- [2] How Steem Works -->
-    <section id="how" class="parallax-section">
-        <div class="parallax-bg"></div>
-        <div class="container">
-            <div class="content section-transition">
-                <h2 class="text-network-glow">One space, two paths.</h2>
-                <p class="network-text-integration">Steem meets you where you are. Find the support that fits you right now.</p>
-                <div class="slider-container">
-                    <div class="slider-wrapper">
-                        <div class="path-card slider-slide card-enhanced">
-                            <h4 class="text-highlight">Sona</h4>
-                            <p>An AI companion who listens like a human and remembers like a journal, available 24/7.</p>
-                        </div>
-                        <div class="path-card slider-slide card-enhanced">
-                            <h4 class="text-highlight">Whisper</h4>
-                            <p>Connect anonymously with peers who are navigating similar life challenges. True empathy, no judgment.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="how">
+      <div class="two-paths-section">
+        <h2 class="two-paths-title">One space, <span class="highlight">two paths.</span></h2>
+        <p class="two-paths-desc">Steem meets you where you are. Find the support that fits you right now.</p>
+        <div class="two-paths-graphic">
+          <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M60 0 C60 30, 60 30, 30 80" stroke="#b7e36a" stroke-width="6" stroke-linecap="round" fill="none"/>
+            <path d="M60 0 C60 30, 60 30, 90 80" stroke="#b7e36a" stroke-width="6" stroke-linecap="round" fill="none"/>
+          </svg>
         </div>
+        <div class="two-paths-cards">
+          <div class="two-paths-card">
+            <h3>Sona</h3>
+            <p>An AI companion who listens<br>like a human and remembers<br>like a journal, available 24/7.</p>
+          </div>
+          <div class="two-paths-card">
+            <h3>Whisper</h3>
+            <p>Connect anonymously with peers navigating similar life challenges for true empathy and no judgment.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- [3] Comparison -->
@@ -3562,10 +4192,9 @@
                         <button type="submit" class="cta-button cta-button-enhanced will-change-transform">Count me in</button>
                         <p class="reassurance">We'll let you in early. No inbox overload.</p>
                     </div>
-                    <div class="success-content">
-                        <div class="checkmark"></div>
-                        <h3>You're on the list!</h3>
-                        <p>We'll be in touch soon with early access.</p>
+                    <!-- Ensure confirmation message is always present -->
+                    <div class="submission-message success" style="display:none; margin-top: 1.5rem; font-size: 1.15rem; border-radius: 1rem;">
+                        <span style="font-size:2rem; vertical-align:middle;">✅</span> You're on the list! We'll be in touch soon with early access.
                     </div>
                 </form>
             </div>
@@ -3574,44 +4203,31 @@
 
     <!-- [NEW] FAQ Section -->
     <section id="faq" class="parallax-section">
-        <div class="parallax-bg"></div>
         <div class="container">
             <div class="content section-transition">
                 <h2 class="text-network-glow" style="color: #000;">Got Questions?</h2>
                 <p class="network-text-integration">Here are some of the things you might be wondering about Steem.</p>
                 <div class="faq-accordion">
-                    <div class="faq-item card-enhanced">
-                        <button class="faq-question focus-visible" aria-expanded="false" aria-controls="faq-answer-1">
-                            <span>What is Steem, exactly?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">What is Steem, exactly?</button>
                         <div class="faq-answer" id="faq-answer-1">
                             <p>Steem is a new type of mental wellness space. It's not therapy, but a platform offering different kinds of support—from an AI companion (Sona) to anonymous peer conversations (Whisper). It's designed to be there for you right when you need it, without the wait or stigma.</p>
                         </div>
                     </div>
-                    <div class="faq-item card-enhanced">
-                        <button class="faq-question focus-visible" aria-expanded="false" aria-controls="faq-answer-2">
-                            <span>Is Steem free to use?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Is Steem free to use?</button>
                         <div class="faq-answer" id="faq-answer-2">
                             <p>Steem will have free features available to everyone. We'll also offer premium subscription plans for extended access and more specialized features. Our goal is to keep core support accessible.</p>
                         </div>
                     </div>
-                    <div class="faq-item card-enhanced">
-                        <button class="faq-question focus-visible" aria-expanded="false" aria-controls="faq-answer-3">
-                            <span>How is Sona different from other AI chatbots?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">How is Sona different from other AI chatbots?</button>
                         <div class="faq-answer" id="faq-answer-3">
                             <p>Sona is designed for deep, contextual listening. Unlike basic chatbots, Sona remembers your conversations to understand your journey, reflects your emotions with empathy, and helps you navigate your thoughts without giving prescriptive advice. The goal is to feel like you're talking to a friend who really gets you.</p>
                         </div>
                     </div>
-                     <div class="faq-item card-enhanced">
-                        <button class="faq-question focus-visible" aria-expanded="false" aria-controls="faq-answer-4">
-                            <span>Is my data private and secure?</span>
-                            <span class="faq-icon" aria-hidden="true">+</span>
-                        </button>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Is my data private and secure?</button>
                         <div class="faq-answer" id="faq-answer-4">
                             <p>Absolutely. Privacy is at the core of Steem. All conversations are encrypted, and your personal data is kept confidential. Our Whisper peer support is fully anonymous to ensure you can share openly and safely.</p>
                         </div>
@@ -3847,20 +4463,7 @@
         }, { threshold: 0.5 });
 
         sonaObserver.observe(sonaSection);
-
-        // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                faqItems.forEach(i => i.classList.remove('active'));
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-                });
-            });
-
+        
         // Slider functionality
         const sliderWrapper = document.querySelector('.slider-wrapper');
         const sliderButtonPrev = document.querySelector('.slider-button.prev');
@@ -3878,15 +4481,18 @@
             });
         }
 
-        sliderButtonPrev.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlider();
-        });
-
-        sliderButtonNext.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        });
+        if (sliderButtonPrev) {
+            sliderButtonPrev.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateSlider();
+            });
+        }
+        if (sliderButtonNext) {
+            sliderButtonNext.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlider();
+            });
+        }
 
         function addMessage(message, isUser = false) {
             const messagesContainer = document.querySelector('.chat-messages');
@@ -3922,44 +4528,6 @@
                 container.style.display = 'none';
             }
         }
-
-        // Form submission handling
-        const form = document.querySelector('.waitlist-form');
-        const formContent = form.querySelector('.form-content');
-        const successContent = form.querySelector('.success-content');
-
-        form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-            
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-
-            try {
-                const formData = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    formContent.style.display = 'none';
-                    successContent.style.display = 'block';
-                    form.reset();
-                } else {
-                    throw new Error(result.message || 'Something went wrong');
-                }
-            } catch (error) {
-                console.error('Form submission error:', error);
-                alert('Failed to submit form. Please try again.');
-            } finally {
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
-            }
-        });
 
         // Enhanced Scroll Animations
         function initScrollAnimations() {
@@ -4032,6 +4600,8 @@
                 });
             });
         });
+
+        let resizeTimeout;
 
         // Performance optimization: Throttle resize events
         window.addEventListener('resize', () => {
@@ -4596,47 +5166,63 @@
 
         // Enhanced FAQ Accessibility
         function initEnhancedFAQ() {
+            console.log('FAQ initialization started');
             const faqItems = document.querySelectorAll('.faq-item');
+            console.log('Found FAQ items:', faqItems.length);
             
             faqItems.forEach((item, index) => {
                 const question = item.querySelector('.faq-question');
                 const answer = item.querySelector('.faq-answer');
+                console.log(`FAQ item ${index}:`, { question: !!question, answer: !!answer });
                 
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    const isExpanded = question.getAttribute('aria-expanded') === 'true';
-                    
-                    // Close all other items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                            const otherQuestion = otherItem.querySelector('.faq-question');
-                            const otherAnswer = otherItem.querySelector('.faq-answer');
-                            otherQuestion.setAttribute('aria-expanded', 'false');
-                            otherAnswer.style.maxHeight = '0';
+                if (question && answer) {
+                    question.addEventListener('click', (e) => {
+                        console.log('FAQ question clicked:', index);
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const isActive = item.classList.contains('active');
+                        const isExpanded = question.getAttribute('aria-expanded') === 'true';
+                        
+                        console.log('FAQ state before toggle:', { isActive, isExpanded });
+                        
+                        // Close all other items
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                                const otherQuestion = otherItem.querySelector('.faq-question');
+                                const otherAnswer = otherItem.querySelector('.faq-answer');
+                                if (otherQuestion && otherAnswer) {
+                                    otherQuestion.setAttribute('aria-expanded', 'false');
+                                    otherAnswer.style.maxHeight = '0';
+                                }
+                            }
+                        });
+                        
+                        // Toggle current item
+                        if (!isActive) {
+                            item.classList.add('active');
+                            question.setAttribute('aria-expanded', 'true');
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            console.log('FAQ expanded, maxHeight set to:', answer.scrollHeight + 'px');
+                        } else {
+                            item.classList.remove('active');
+                            question.setAttribute('aria-expanded', 'false');
+                            answer.style.maxHeight = '0';
+                            console.log('FAQ collapsed');
                         }
                     });
-                    
-                    // Toggle current item
-                    if (!isActive) {
-                        item.classList.add('active');
-                        question.setAttribute('aria-expanded', 'true');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                    } else {
-                        item.classList.remove('active');
-                        question.setAttribute('aria-expanded', 'false');
-                        answer.style.maxHeight = '0';
-                    }
-                });
 
-                // Keyboard navigation
-                question.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        question.click();
-                    }
-                });
+                    // Keyboard navigation
+                    question.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            question.click();
+                        }
+                    });
+                }
             });
+            console.log('FAQ initialization completed');
         }
 
         // Performance optimizations
@@ -4686,10 +5272,12 @@
             forms.forEach(form => {
                 const submitButton = form.querySelector('button[type="submit"]');
                 if (submitButton) {
+                    if (!form.classList.contains('waitlist-form')) {
                     form.addEventListener('submit', () => {
                         submitButton.classList.add('loading-shimmer');
                         submitButton.disabled = true;
-                    });
+    });
+}
                 }
             });
         }
@@ -4747,12 +5335,12 @@
     </script>
     <script>
     // ... existing code ...
-    // Waitlist form: prevent redirect and show confirmation in place
+    // Waitlist form: show confirmation below form, do not hide form
     (function() {
       const form = document.querySelector('.waitlist-form');
       if (!form) return;
       const formContent = form.querySelector('.form-content');
-      const successContent = form.querySelector('.success-content');
+      const confirmation = form.querySelector('.submission-message.success');
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const submitButton = form.querySelector('button[type="submit"]');
@@ -4765,17 +5353,28 @@
             method: 'POST',
             body: formData
           });
+          // Only show confirmation if the API returns success
           const result = await response.json();
-          if (result.success) {
-            formContent.style.display = 'none';
-            console.log('About to show confirmation');
-            successContent.classList.add('visible');
-            console.log('Confirmation should now be visible', successContent);
-            form.reset();
+          console.log('Web3Forms API response:', result); // Debug log
+          if (
+            result.success === true ||
+            result.success === 'true' ||
+            result.status === 200 ||
+            result.status === '200'
+          ) {
+            if (confirmation) {
+              confirmation.style.display = 'block';
+              form.reset();
+              confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              alert('Submission succeeded, but confirmation element is missing.');
+            }
           } else {
             throw new Error(result.message || 'Something went wrong');
           }
         } catch (error) {
+          // Do not show confirmation on error
+          confirmation.style.display = 'none';
           alert('Failed to submit form. Please try again.');
         } finally {
           submitButton.textContent = originalButtonText;
@@ -4785,5 +5384,421 @@
     })();
     // ... existing code ...
     </script>
+    <script>
+    (function() {
+      const wrapper = document.querySelector('.use-case-carousel-wrapper');
+      const slides = document.querySelectorAll('#use-case-carousel .use-case-slide');
+
+      const progress = document.querySelector('#use-case-carousel .progress');
+      const leftArrow = wrapper.querySelector('.use-case-arrow.left');
+      const rightArrow = wrapper.querySelector('.use-case-arrow.right');
+      let current = 0;
+      let timer;
+      const duration = 2500;
+      let last = 0;
+      function showSlide(idx, direction = 1) {
+        slides.forEach((slide, i) => {
+          slide.classList.remove('active', 'exit-left', 'exit-right');
+          if (i === current && i !== idx) {
+            slide.classList.add(direction > 0 ? 'exit-left' : 'exit-right');
+          }
+          if (i === idx) {
+            slide.classList.add('active');
+            slide.style.display = 'flex';
+          } else {
+            slide.style.display = '';
+          }
+        });
+
+        last = current;
+        current = idx;
+        if (progress) {
+          progress.style.transition = 'none';
+          progress.style.width = '0%';
+          setTimeout(() => {
+            progress.style.transition = `width ${duration}ms linear`;
+            progress.style.width = '100%';
+          }, 20);
+        }
+      }
+      function nextSlide() {
+        showSlide((current + 1) % slides.length, 1);
+      }
+      function prevSlide() {
+        showSlide((current - 1 + slides.length) % slides.length, -1);
+      }
+      function startAuto() {
+        timer = setInterval(nextSlide, duration);
+        if (progress) {
+          progress.style.transition = `width ${duration}ms linear`;
+          progress.style.width = '100%';
+        }
+      }
+      function stopAuto() {
+        clearInterval(timer);
+        if (progress) progress.style.width = '0%';
+      }
+
+      if (leftArrow) {
+        leftArrow.addEventListener('click', () => {
+          stopAuto();
+          prevSlide();
+          startAuto();
+        });
+      }
+      if (rightArrow) {
+        rightArrow.addEventListener('click', () => {
+          stopAuto();
+          nextSlide();
+          startAuto();
+        });
+      }
+      showSlide(0);
+      startAuto();
+    })();
+    
+    // Modal functionality
+    function openUseCasesModal() {
+      const modal = document.getElementById('use-cases-modal');
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeUseCasesModal() {
+      const modal = document.getElementById('use-cases-modal');
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    
+    // Close modal on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeUseCasesModal();
+      }
+    });
+    </script>
+    <!-- Premium Use Case Carousel Section -->
+    <section class="use-case-pro-section">
+      <div class="use-case-pro-bg"></div>
+      <div class="use-case-pro-content">
+        <h2 class="use-case-pro-title">How People Use Steem</h2>
+        <p class="use-case-pro-desc">Real moments, real support.</p>
+        <div class="use-case-carousel-wrapper">
+          <button class="use-case-arrow left" aria-label="Previous use case">&#8592;</button>
+          <div class="use-case-carousel" id="use-case-carousel">
+            <div class="use-case-slide active">For when you're overwhelmed at 2am and need to vent.</div>
+            <div class="use-case-slide">For advice without judgment after a tough day.</div>
+            <div class="use-case-slide">For support when you can't talk to friends or family.</div>
+            <div class="use-case-slide">For celebrating small wins, even if no one else gets it.</div>
+            <div class="use-case-slide">For sorting out your thoughts before a big decision.</div>
+          </div>
+          <button class="use-case-arrow right" aria-label="Next use case">&#8594;</button>
+        </div>
+        <div style="height: 7em;"></div>
+        <button class="see-more-use-cases-btn" onclick="openUseCasesModal()">
+          See 50+ More Real Use Cases
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </section>
+    <style>
+    .use-case-pro-section {
+      position: relative;
+      z-index: 2;
+      margin: 3.5rem auto 0 auto;
+      padding: 3.5rem 0 3.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 420px;
+    }
+    .use-case-pro-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(120deg, #f0f8e8 0%, #e8f5e0 50%, #f5f9f0 100%);
+      opacity: 0.92;
+      border-radius: 2.5rem;
+      box-shadow: 0 8px 48px 0 rgba(64,120,0,0.10), 0 2px 12px 0 rgba(40,80,0,0.10);
+      filter: blur(0.5px);
+    }
+    .use-case-pro-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 3em;
+    }
+    .use-case-spacer {
+      flex-basis: 25%;
+    }
+    .see-more-use-cases-btn {
+      margin-top: 0;
+      margin-bottom: 1.5em;
+    }
+    @media (max-width: 768px) {
+      .use-case-spacer {
+        flex-basis: 10%;
+      }
+    }
+    .use-case-pro-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.7rem;
+      color: #1B300A;
+      text-shadow: 0 2px 12px rgba(164,222,0,0.08);
+    }
+    .use-case-pro-desc {
+      font-size: 1.18rem;
+      color: #3a4d2a;
+      margin-bottom: 2.2rem;
+      max-width: 420px;
+      text-align: center;
+      opacity: 0.92;
+    }
+    .use-case-carousel-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+    .use-case-carousel {
+      flex: 1 1 auto;
+      position: relative;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+    .see-more-use-cases-btn {
+      margin-top: 0;
+      margin-bottom: 1.5em;
+    }
+    .use-case-slide {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      color: #1a2d13;
+      background: none;
+      border: none;
+      box-shadow: none;
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+      margin: 0 auto;
+      z-index: 1;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      min-height: 3.5em;
+      cursor: pointer;
+      font-weight: 600;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: unset;
+      padding: 0.5em 0;
+      text-align: center;
+      width: 100%;
+      max-width: 100%;
+    }
+    </style>
+    
+    <!-- Use Cases Modal -->
+    <div id="use-cases-modal" class="use-cases-modal">
+      <div class="modal-overlay" onclick="closeUseCasesModal()"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Real People, Real Moments</h2>
+          <p>50+ ways people actually use Steem</p>
+          <button class="modal-close" onclick="closeUseCasesModal()">×</button>
+        </div>
+        <div class="use-cases-grid">
+          <div class="use-case-item">For when you're overwhelmed at 2am and need to vent.</div>
+          <div class="use-case-item">For advice without judgment after a tough day.</div>
+          <div class="use-case-item">For support when you can't talk to friends or family.</div>
+          <div class="use-case-item">For celebrating small wins, even if no one else gets it.</div>
+          <div class="use-case-item">For sorting out your thoughts before a big decision.</div>
+          <div class="use-case-item">For when you're spiraling and need someone to ground you.</div>
+          <div class="use-case-item">For processing a breakup when your friends are tired of hearing about it.</div>
+          <div class="use-case-item">For anxiety attacks at 3am when everyone else is asleep.</div>
+          <div class="use-case-item">For imposter syndrome before a big presentation.</div>
+          <div class="use-case-item">For when you're questioning your entire career path.</div>
+          <div class="use-case-item">For the guilt of canceling plans because you're exhausted.</div>
+          <div class="use-case-item">For processing family drama without involving family.</div>
+          <div class="use-case-item">For when you're happy but don't want to seem braggy.</div>
+          <div class="use-case-item">For the existential crisis that hits every Sunday night.</div>
+          <div class="use-case-item">For when you need to rant about your roommate but don't want to be petty.</div>
+          <div class="use-case-item">For the anxiety of checking your bank account.</div>
+          <div class="use-case-item">For when you're proud of yourself but it feels weird to say.</div>
+          <div class="use-case-item">For processing a microaggression at work.</div>
+          <div class="use-case-item">For the loneliness of eating alone in a crowded restaurant.</div>
+          <div class="use-case-item">For when you're questioning if your relationship is healthy.</div>
+          <div class="use-case-item">For the stress of planning a trip you can't afford.</div>
+          <div class="use-case-item">For when you need to cry but don't want to explain why.</div>
+          <div class="use-case-item">For the guilt of not calling your mom back.</div>
+          <div class="use-case-item">For processing a friend's success when you're struggling.</div>
+          <div class="use-case-item">For the anxiety of dating after a long relationship.</div>
+          <div class="use-case-item">For when you're homesick but don't want to admit it.</div>
+          <div class="use-case-item">For the stress of job hunting in a competitive market.</div>
+          <div class="use-case-item">For when you need to vent about your boss but can't at work.</div>
+          <div class="use-case-item">For processing a friend's pregnancy announcement when you're trying.</div>
+          <div class="use-case-item">For the loneliness of moving to a new city.</div>
+          <div class="use-case-item">For when you're questioning your faith or beliefs.</div>
+          <div class="use-case-item">For the anxiety of social media comparison.</div>
+          <div class="use-case-item">For when you need to process trauma but therapy is expensive.</div>
+          <div class="use-case-item">For the stress of caring for aging parents.</div>
+          <div class="use-case-item">For when you're questioning your sexuality.</div>
+          <div class="use-case-item">For the guilt of taking a mental health day.</div>
+          <div class="use-case-item">For processing a miscarriage or fertility struggles.</div>
+          <div class="use-case-item">For when you need to rant about politics but don't want to fight.</div>
+          <div class="use-case-item">For the anxiety of public speaking.</div>
+          <div class="use-case-item">For when you're questioning if you're good enough.</div>
+          <div class="use-case-item">For the stress of being the "strong friend" all the time.</div>
+          <div class="use-case-item">For when you need to process grief but everyone else has moved on.</div>
+          <div class="use-case-item">For the anxiety of medical test results.</div>
+          <div class="use-case-item">For when you're questioning your life choices.</div>
+          <div class="use-case-item">For the stress of being the breadwinner.</div>
+          <div class="use-case-item">For when you need to process racism or discrimination.</div>
+          <div class="use-case-item">For the anxiety of being vulnerable with someone new.</div>
+          <div class="use-case-item">For when you're questioning if you're making the right decisions.</div>
+          <div class="use-case-item">For the stress of being a caregiver.</div>
+          <div class="use-case-item">For when you need to process a toxic friendship ending.</div>
+          <div class="use-case-item">For the anxiety of financial insecurity.</div>
+          <div class="use-case-item">For when you're questioning your worth in a relationship.</div>
+          <div class="use-case-item">For the stress of being the only one who cares.</div>
+          <div class="use-case-item">For when you need to process a difficult diagnosis.</div>
+          <div class="use-case-item">For the anxiety of being judged by others.</div>
+          <div class="use-case-item">For when you're questioning if you're doing enough.</div>
+          <div class="use-case-item">For the stress of being the responsible one.</div>
+          <div class="use-case-item">For when you need to process a betrayal.</div>
+          <div class="use-case-item">For the anxiety of being authentic.</div>
+          <div class="use-case-item">For when you're questioning if you're on the right path.</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="two-paths-section">
+      <h2 class="two-paths-title">One space, <span class="highlight">two paths.</span></h2>
+      <p class="two-paths-desc">Steem meets you where you are. Find the support that fits you right now.</p>
+      <div class="two-paths-graphic">
+        <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M60 0 C60 30, 60 30, 30 80" stroke="#b7e36a" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <path d="M60 0 C60 30, 60 30, 90 80" stroke="#b7e36a" stroke-width="6" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="two-paths-cards">
+        <div class="two-paths-card">
+          <h3>Sona</h3>
+          <p>An AI companion who listens<br>like a human and remembers<br>like a journal, available 24/7.</p>
+        </div>
+        <div class="two-paths-card">
+          <h3>Whisper</h3>
+          <p>Connect anonymously with peers navigating similar life challenges for true empathy and no judgment.</p>
+        </div>
+      </div>
+    </section>
+    <style>
+      .two-paths-section {
+        text-align: center;
+        margin: 6em auto 0 auto;
+        max-width: 1000px;
+        position: relative;
+        padding-bottom: 3em;
+      }
+      .two-paths-cards {
+        display: flex;
+        justify-content: center;
+        gap: 3.5em;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .two-paths-card {
+        position: relative;
+        background: rgba(255,255,255,0.85);
+        border-radius: 2em;
+        box-shadow: 0 8px 40px 0 rgba(95,168,0,0.13), 0 2px 12px 0 rgba(40,80,0,0.10);
+        padding: 3.5em 2.5em 2.5em 2.5em;
+        min-width: 340px;
+        max-width: 420px;
+        flex: 1 1 0;
+        text-align: center;
+        font-size: 1.18em;
+        color: #1a2d13;
+        transition: box-shadow 0.2s, border 0.2s;
+        border: 2.5px solid transparent;
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        margin-bottom: 0;
+        z-index: 1;
+      }
+      .two-paths-card::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0.9em;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 48px;
+        height: 6px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, #b7e36a 0%, #5fa800 100%);
+        opacity: 0.85;
+        z-index: 2;
+      }
+      .two-paths-card:hover {
+        box-shadow: 0 16px 60px 0 rgba(95,168,0,0.18), 0 4px 24px 0 rgba(40,80,0,0.13);
+        border: 2.5px solid #b7e36a;
+      }
+      .two-paths-card h3 {
+        font-size: 2em;
+        font-weight: 800;
+        margin-bottom: 0.8em;
+        color: #1B300A;
+        letter-spacing: -0.01em;
+        margin-top: 1.2em;
+      }
+      .two-paths-card p {
+        margin: 0;
+        color: #2c5a1a;
+        opacity: 0.97;
+        font-size: 1.18em;
+        line-height: 1.6;
+        font-weight: 500;
+        max-width: 28ch;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (max-width: 1000px) {
+        .two-paths-section {
+          max-width: 98vw;
+        }
+        .two-paths-cards {
+          gap: 1.5em;
+        }
+        .two-paths-card {
+          min-width: 0;
+          width: 100%;
+          max-width: 100vw;
+        }
+      }
+      @media (max-width: 700px) {
+        .two-paths-cards {
+          flex-direction: column;
+          gap: 2em;
+        }
+        .two-paths-card {
+          min-width: 0;
+          width: 100%;
+          max-width: 100vw;
+        }
+      }
+    </style>
 </body>
-</html>
+
