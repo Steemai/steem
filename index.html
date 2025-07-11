@@ -3947,6 +3947,80 @@
         </div>
     </section>
 
+    <!-- Use Cases Modal -->
+    <div id="use-cases-modal" class="use-cases-modal">
+      <div class="modal-overlay" onclick="closeUseCasesModal()"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Real People, Real Moments</h2>
+          <p>50+ ways people actually use Steem</p>
+          <button class="modal-close" onclick="closeUseCasesModal()">×</button>
+        </div>
+        <div class="use-cases-grid">
+          <div class="use-case-item">For when you're overwhelmed at 2am and need to vent.</div>
+          <div class="use-case-item">For advice without judgment after a tough day.</div>
+          <div class="use-case-item">For support when you can't talk to friends or family.</div>
+          <div class="use-case-item">For celebrating small wins, even if no one else gets it.</div>
+          <div class="use-case-item">For sorting out your thoughts before a big decision.</div>
+          <div class="use-case-item">For when you're spiraling and need someone to ground you.</div>
+          <div class="use-case-item">For processing a breakup when your friends are tired of hearing about it.</div>
+          <div class="use-case-item">For anxiety attacks at 3am when everyone else is asleep.</div>
+          <div class="use-case-item">For imposter syndrome before a big presentation.</div>
+          <div class="use-case-item">For when you're questioning your entire career path.</div>
+          <div class="use-case-item">For the guilt of canceling plans because you're exhausted.</div>
+          <div class="use-case-item">For processing family drama without involving family.</div>
+          <div class="use-case-item">For when you're happy but don't want to seem braggy.</div>
+          <div class="use-case-item">For the existential crisis that hits every Sunday night.</div>
+          <div class="use-case-item">For when you need to rant about your roommate but don't want to be petty.</div>
+          <div class="use-case-item">For the anxiety of checking your bank account.</div>
+          <div class="use-case-item">For when you're proud of yourself but it feels weird to say.</div>
+          <div class="use-case-item">For processing a microaggression at work.</div>
+          <div class="use-case-item">For the loneliness of eating alone in a crowded restaurant.</div>
+          <div class="use-case-item">For when you're questioning if your relationship is healthy.</div>
+          <div class="use-case-item">For the stress of planning a trip you can't afford.</div>
+          <div class="use-case-item">For when you need to cry but don't want to explain why.</div>
+          <div class="use-case-item">For the guilt of not calling your mom back.</div>
+          <div class="use-case-item">For processing a friend's success when you're struggling.</div>
+          <div class="use-case-item">For the anxiety of dating after a long relationship.</div>
+          <div class="use-case-item">For when you're homesick but don't want to admit it.</div>
+          <div class="use-case-item">For the stress of job hunting in a competitive market.</div>
+          <div class="use-case-item">For when you need to vent about your boss but can't at work.</div>
+          <div class="use-case-item">For processing a friend's pregnancy announcement when you're trying.</div>
+          <div class="use-case-item">For the loneliness of moving to a new city.</div>
+          <div class="use-case-item">For when you're questioning your faith or beliefs.</div>
+          <div class="use-case-item">For the anxiety of social media comparison.</div>
+          <div class="use-case-item">For when you need to process trauma but therapy is expensive.</div>
+          <div class="use-case-item">For the stress of caring for aging parents.</div>
+          <div class="use-case-item">For when you're questioning your sexuality.</div>
+          <div class="use-case-item">For the guilt of taking a mental health day.</div>
+          <div class="use-case-item">For processing a miscarriage or fertility struggles.</div>
+          <div class="use-case-item">For when you need to rant about politics but don't want to fight.</div>
+          <div class="use-case-item">For the anxiety of public speaking.</div>
+          <div class="use-case-item">For when you're questioning if you're good enough.</div>
+          <div class="use-case-item">For the stress of being the "strong friend" all the time.</div>
+          <div class="use-case-item">For when you need to process grief but everyone else has moved on.</div>
+          <div class="use-case-item">For the anxiety of medical test results.</div>
+          <div class="use-case-item">For when you're questioning your life choices.</div>
+          <div class="use-case-item">For the stress of being the breadwinner.</div>
+          <div class="use-case-item">For when you need to process racism or discrimination.</div>
+          <div class="use-case-item">For the anxiety of being vulnerable with someone new.</div>
+          <div class="use-case-item">For when you're questioning if you're making the right decisions.</div>
+          <div class="use-case-item">For the stress of being a caregiver.</div>
+          <div class="use-case-item">For when you need to process a toxic friendship ending.</div>
+          <div class="use-case-item">For the anxiety of financial insecurity.</div>
+          <div class="use-case-item">For when you're questioning your worth in a relationship.</div>
+          <div class="use-case-item">For the stress of being the only one who cares.</div>
+          <div class="use-case-item">For when you need to process a difficult diagnosis.</div>
+          <div class="use-case-item">For the anxiety of being judged by others.</div>
+          <div class="use-case-item">For when you're questioning if you're doing enough.</div>
+          <div class="use-case-item">For the stress of being the responsible one.</div>
+          <div class="use-case-item">For when you need to process a betrayal.</div>
+          <div class="use-case-item">For the anxiety of being authentic.</div>
+          <div class="use-case-item">For when you're questioning if you're on the right path.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- [2] How Steem Works -->
     <section id="how">
       <div class="two-paths-section">
@@ -5477,328 +5551,6 @@
       }
     });
     </script>
-    <!-- Premium Use Case Carousel Section -->
-    <section class="use-case-pro-section">
-      <div class="use-case-pro-bg"></div>
-      <div class="use-case-pro-content">
-        <h2 class="use-case-pro-title">How People Use Steem</h2>
-        <p class="use-case-pro-desc">Real moments, real support.</p>
-        <div class="use-case-carousel-wrapper">
-          <button class="use-case-arrow left" aria-label="Previous use case">&#8592;</button>
-          <div class="use-case-carousel" id="use-case-carousel">
-            <div class="use-case-slide active">For when you're overwhelmed at 2am and need to vent.</div>
-            <div class="use-case-slide">For advice without judgment after a tough day.</div>
-            <div class="use-case-slide">For support when you can't talk to friends or family.</div>
-            <div class="use-case-slide">For celebrating small wins, even if no one else gets it.</div>
-            <div class="use-case-slide">For sorting out your thoughts before a big decision.</div>
-          </div>
-          <button class="use-case-arrow right" aria-label="Next use case">&#8594;</button>
-        </div>
-        <div style="height: 7em;"></div>
-        <button class="see-more-use-cases-btn" onclick="openUseCasesModal()">
-          See 50+ More Real Use Cases
-          <span class="btn-arrow">→</span>
-        </button>
-      </div>
-    </section>
-    <style>
-    .use-case-pro-section {
-      position: relative;
-      z-index: 2;
-      margin: 3.5rem auto 0 auto;
-      padding: 3.5rem 0 3.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 420px;
-    }
-    .use-case-pro-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(120deg, #f0f8e8 0%, #e8f5e0 50%, #f5f9f0 100%);
-      opacity: 0.92;
-      border-radius: 2.5rem;
-      box-shadow: 0 8px 48px 0 rgba(64,120,0,0.10), 0 2px 12px 0 rgba(40,80,0,0.10);
-      filter: blur(0.5px);
-    }
-    .use-case-pro-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem 2rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 3em;
-    }
-    .use-case-spacer {
-      flex-basis: 25%;
-    }
-    .see-more-use-cases-btn {
-      margin-top: 0;
-      margin-bottom: 1.5em;
-    }
-    @media (max-width: 768px) {
-      .use-case-spacer {
-        flex-basis: 10%;
-      }
-    }
-    .use-case-pro-title {
-      font-size: 2.1rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.7rem;
-      color: #1B300A;
-      text-shadow: 0 2px 12px rgba(164,222,0,0.08);
-    }
-    .use-case-pro-desc {
-      font-size: 1.18rem;
-      color: #3a4d2a;
-      margin-bottom: 2.2rem;
-      max-width: 420px;
-      text-align: center;
-      opacity: 0.92;
-    }
-    .use-case-carousel-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      position: relative;
-      margin: 0 auto;
-      max-width: 100%;
-    }
-    .use-case-carousel {
-      flex: 1 1 auto;
-      position: relative;
-      min-width: 0;
-      width: 100%;
-      max-width: 100%;
-    }
-    .see-more-use-cases-btn {
-      margin-top: 0;
-      margin-bottom: 1.5em;
-    }
-    .use-case-slide {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.45rem;
-      color: #1a2d13;
-      background: none;
-      border: none;
-      box-shadow: none;
-      opacity: 0;
-      transform: translateX(60px);
-      transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
-      margin: 0 auto;
-      z-index: 1;
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      min-height: 3.5em;
-      cursor: pointer;
-      font-weight: 600;
-      white-space: normal;
-      overflow: visible;
-      text-overflow: unset;
-      padding: 0.5em 0;
-      text-align: center;
-      width: 100%;
-      max-width: 100%;
-    }
-    </style>
-    
-    <!-- Use Cases Modal -->
-    <div id="use-cases-modal" class="use-cases-modal">
-      <div class="modal-overlay" onclick="closeUseCasesModal()"></div>
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Real People, Real Moments</h2>
-          <p>50+ ways people actually use Steem</p>
-          <button class="modal-close" onclick="closeUseCasesModal()">×</button>
-        </div>
-        <div class="use-cases-grid">
-          <div class="use-case-item">For when you're overwhelmed at 2am and need to vent.</div>
-          <div class="use-case-item">For advice without judgment after a tough day.</div>
-          <div class="use-case-item">For support when you can't talk to friends or family.</div>
-          <div class="use-case-item">For celebrating small wins, even if no one else gets it.</div>
-          <div class="use-case-item">For sorting out your thoughts before a big decision.</div>
-          <div class="use-case-item">For when you're spiraling and need someone to ground you.</div>
-          <div class="use-case-item">For processing a breakup when your friends are tired of hearing about it.</div>
-          <div class="use-case-item">For anxiety attacks at 3am when everyone else is asleep.</div>
-          <div class="use-case-item">For imposter syndrome before a big presentation.</div>
-          <div class="use-case-item">For when you're questioning your entire career path.</div>
-          <div class="use-case-item">For the guilt of canceling plans because you're exhausted.</div>
-          <div class="use-case-item">For processing family drama without involving family.</div>
-          <div class="use-case-item">For when you're happy but don't want to seem braggy.</div>
-          <div class="use-case-item">For the existential crisis that hits every Sunday night.</div>
-          <div class="use-case-item">For when you need to rant about your roommate but don't want to be petty.</div>
-          <div class="use-case-item">For the anxiety of checking your bank account.</div>
-          <div class="use-case-item">For when you're proud of yourself but it feels weird to say.</div>
-          <div class="use-case-item">For processing a microaggression at work.</div>
-          <div class="use-case-item">For the loneliness of eating alone in a crowded restaurant.</div>
-          <div class="use-case-item">For when you're questioning if your relationship is healthy.</div>
-          <div class="use-case-item">For the stress of planning a trip you can't afford.</div>
-          <div class="use-case-item">For when you need to cry but don't want to explain why.</div>
-          <div class="use-case-item">For the guilt of not calling your mom back.</div>
-          <div class="use-case-item">For processing a friend's success when you're struggling.</div>
-          <div class="use-case-item">For the anxiety of dating after a long relationship.</div>
-          <div class="use-case-item">For when you're homesick but don't want to admit it.</div>
-          <div class="use-case-item">For the stress of job hunting in a competitive market.</div>
-          <div class="use-case-item">For when you need to vent about your boss but can't at work.</div>
-          <div class="use-case-item">For processing a friend's pregnancy announcement when you're trying.</div>
-          <div class="use-case-item">For the loneliness of moving to a new city.</div>
-          <div class="use-case-item">For when you're questioning your faith or beliefs.</div>
-          <div class="use-case-item">For the anxiety of social media comparison.</div>
-          <div class="use-case-item">For when you need to process trauma but therapy is expensive.</div>
-          <div class="use-case-item">For the stress of caring for aging parents.</div>
-          <div class="use-case-item">For when you're questioning your sexuality.</div>
-          <div class="use-case-item">For the guilt of taking a mental health day.</div>
-          <div class="use-case-item">For processing a miscarriage or fertility struggles.</div>
-          <div class="use-case-item">For when you need to rant about politics but don't want to fight.</div>
-          <div class="use-case-item">For the anxiety of public speaking.</div>
-          <div class="use-case-item">For when you're questioning if you're good enough.</div>
-          <div class="use-case-item">For the stress of being the "strong friend" all the time.</div>
-          <div class="use-case-item">For when you need to process grief but everyone else has moved on.</div>
-          <div class="use-case-item">For the anxiety of medical test results.</div>
-          <div class="use-case-item">For when you're questioning your life choices.</div>
-          <div class="use-case-item">For the stress of being the breadwinner.</div>
-          <div class="use-case-item">For when you need to process racism or discrimination.</div>
-          <div class="use-case-item">For the anxiety of being vulnerable with someone new.</div>
-          <div class="use-case-item">For when you're questioning if you're making the right decisions.</div>
-          <div class="use-case-item">For the stress of being a caregiver.</div>
-          <div class="use-case-item">For when you need to process a toxic friendship ending.</div>
-          <div class="use-case-item">For the anxiety of financial insecurity.</div>
-          <div class="use-case-item">For when you're questioning your worth in a relationship.</div>
-          <div class="use-case-item">For the stress of being the only one who cares.</div>
-          <div class="use-case-item">For when you need to process a difficult diagnosis.</div>
-          <div class="use-case-item">For the anxiety of being judged by others.</div>
-          <div class="use-case-item">For when you're questioning if you're doing enough.</div>
-          <div class="use-case-item">For the stress of being the responsible one.</div>
-          <div class="use-case-item">For when you need to process a betrayal.</div>
-          <div class="use-case-item">For the anxiety of being authentic.</div>
-          <div class="use-case-item">For when you're questioning if you're on the right path.</div>
-        </div>
-      </div>
-    </div>
 
-    <section class="two-paths-section">
-      <h2 class="two-paths-title">One space, <span class="highlight">two paths.</span></h2>
-      <p class="two-paths-desc">Steem meets you where you are. Find the support that fits you right now.</p>
-      <div class="two-paths-graphic">
-        <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M60 0 C60 30, 60 30, 30 80" stroke="#b7e36a" stroke-width="6" stroke-linecap="round" fill="none"/>
-          <path d="M60 0 C60 30, 60 30, 90 80" stroke="#b7e36a" stroke-width="6" stroke-linecap="round" fill="none"/>
-        </svg>
-      </div>
-      <div class="two-paths-cards">
-        <div class="two-paths-card">
-          <h3>Sona</h3>
-          <p>An AI companion who listens<br>like a human and remembers<br>like a journal, available 24/7.</p>
-        </div>
-        <div class="two-paths-card">
-          <h3>Whisper</h3>
-          <p>Connect anonymously with peers navigating similar life challenges for true empathy and no judgment.</p>
-        </div>
-      </div>
-    </section>
-    <style>
-      .two-paths-section {
-        text-align: center;
-        margin: 6em auto 0 auto;
-        max-width: 1000px;
-        position: relative;
-        padding-bottom: 3em;
-      }
-      .two-paths-cards {
-        display: flex;
-        justify-content: center;
-        gap: 3.5em;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      .two-paths-card {
-        position: relative;
-        background: rgba(255,255,255,0.85);
-        border-radius: 2em;
-        box-shadow: 0 8px 40px 0 rgba(95,168,0,0.13), 0 2px 12px 0 rgba(40,80,0,0.10);
-        padding: 3.5em 2.5em 2.5em 2.5em;
-        min-width: 340px;
-        max-width: 420px;
-        flex: 1 1 0;
-        text-align: center;
-        font-size: 1.18em;
-        color: #1a2d13;
-        transition: box-shadow 0.2s, border 0.2s;
-        border: 2.5px solid transparent;
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        margin-bottom: 0;
-        z-index: 1;
-      }
-      .two-paths-card::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0.9em;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 48px;
-        height: 6px;
-        border-radius: 3px;
-        background: linear-gradient(90deg, #b7e36a 0%, #5fa800 100%);
-        opacity: 0.85;
-        z-index: 2;
-      }
-      .two-paths-card:hover {
-        box-shadow: 0 16px 60px 0 rgba(95,168,0,0.18), 0 4px 24px 0 rgba(40,80,0,0.13);
-        border: 2.5px solid #b7e36a;
-      }
-      .two-paths-card h3 {
-        font-size: 2em;
-        font-weight: 800;
-        margin-bottom: 0.8em;
-        color: #1B300A;
-        letter-spacing: -0.01em;
-        margin-top: 1.2em;
-      }
-      .two-paths-card p {
-        margin: 0;
-        color: #2c5a1a;
-        opacity: 0.97;
-        font-size: 1.18em;
-        line-height: 1.6;
-        font-weight: 500;
-        max-width: 28ch;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      @media (max-width: 1000px) {
-        .two-paths-section {
-          max-width: 98vw;
-        }
-        .two-paths-cards {
-          gap: 1.5em;
-        }
-        .two-paths-card {
-          min-width: 0;
-          width: 100%;
-          max-width: 100vw;
-        }
-      }
-      @media (max-width: 700px) {
-        .two-paths-cards {
-          flex-direction: column;
-          gap: 2em;
-        }
-        .two-paths-card {
-          min-width: 0;
-          width: 100%;
-          max-width: 100vw;
-        }
-      }
-    </style>
 </body>
 
